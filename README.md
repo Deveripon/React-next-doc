@@ -1,59 +1,226 @@
-আলোচ্যসুচিঃ -
+# DEVELOPER HANDBOOK
 
-[Introduction Of React](#introduction)
+### React Developer Roadmap (2024)
 
-[রিয়াক্ট কি ? কেন আমরা রিয়াক্ট শিখবো ?](#রিয়াক্ট)
+A thorough React developer roadmap for 2024 that addresses all aspects of React and beyond.
 
-[ভার্চুয়াল ডম কি ? এটা কিভাবে কাজ করে ?](#ভার্চুয়াল)
+<details>
 
-# Introduction of React
+<summary>0. Before you start React</summary>
 
-**রিয়াক্ট কি ?**
+You should know and be comfortable with **all of the following:**
 
-রিয়াক্ট হলো একটি জাভাস্ক্রিপ্ট লাইব্রেরি যা জাভাস্ক্রিপ্ট ল্যাংগুয়েজ দিয়েই বানানো। এটি মূলত ওয়েব এবং নেটিব (মোবাইল) এপ্লিকেশনের ইউজার ইন্টারফেজ বানানোর জন্য তৈরি করা হয়েছে। ফেসবুকের একজন ইঞ্জিনিয়ার ,যার নাম হলো **JORDAN WALKE** সর্বপ্রথম ২০১১ সালে রিয়াক্টের একটা প্রোটোটাইপ তৈরি করেন যার নাম দেন FAX-JS । তারপর তা ২০১১ সালেই ফেসবুকের টাইমলাইনে ব্যাবহার করা হয় এবং ২০১২ সালে তা ইন্সটাগ্রামেও ব্যাবহার করা হয়। যেহেতু তারা অনেক ভালো রেজাল্ট পায় এতে তাই তারা সর্বপ্রথম ২০১৩ সালে এটিকে REACT JS নামে গিটহাবে ওপেনসোর্স হিসেবে সবার জন্য ফ্রি করে দেন ।
+-   [**Basic HTML**](https://www.w3schools.com/html/default.asp)
 
-**কেন আমরা রিয়াক্ট শিখবো ?**
+    -   HTML Elements, Attributes, Headings, Paragraphs, Colors & Styles
+    -   HTML Links, Images, Tables, Lists, Block & Inline, Div, Classes, Id
+    -   HTML Forms
+    -   HTML Layout, Responsiveness & Semantic
 
-ভ্যানিলা জাভাস্ক্রিপ্টে আমরা যখন কোন প্রজেক্ট করি তখন সেখানে আমাদের কি করা লাগে ? যখন ইউজারের কোন একশনের কারণে UI তে কোন কিছু চেঞ্জ করা প্রয়োজন হয় তখন আমরা DOM MANIPULATION করি, এবং DOM এ কোন কাজ করার পর তা ম্যানুয়ালি আমারা UI তে আপডেট করে দেই। এইযে আমরা ইউজারের কোন একটা ইন্টারেকশনের কারণে বার বার DOM MANIPULATE করি এবং প্রতিবার ম্যানুয়ালি DOM UPDATE করি ,তখন এটা কিন্তু আমাদের কোড মেইন্টেন করাটা অনেক কঠিন হয়ে পড়ে। যদিও ছোট ছোট প্রজেক্টে হইতো দুই একটা ইন্টারেকশন থাকলে আমরা তা ম্যনুয়ালি আপডেট করে দিতে পারি ,কিন্তু ভাবুন আমাদের একটা এপ্লিকেশন আছে যাতে অনেক অনেক ইউজার ইন্টারেকশন আছে,তখন আমদের কি করা লাগবে?তখন আমাদের প্রতিবার ইউজারের যেকোনো ইন্টারেকশনে ম্যানুয়ালি DOM আপডেট করতে হবে । রিয়াক্ট আমাদের এইটার একটা সলিউশন দিয়ে দিয়েছে , যাতে ইউজারের কোন ইন্টারেকশনের কারণে আমাদের UI তে কোন চেঞ্জ করা লাগলেও যেন আমাদের সেটা বার বার ম্যানুয়ালি না করতে হয় । মূলত এই কারণেই রিয়াক্ট এর উৎপত্তি।
+-   [**Basic CSS**](https://www.w3schools.com/css/default.asp)
 
-**রিয়াক্ট সেটা কিভাবে করে ?**
+    -   CSS Basics - Syntax, Selectors, Colors, Backgrounds, Borders, Margin, Padding, Height/Width, Box Model, Outline, Text, Fonts, Links etc.
+    -   CSS More - Lists, Tables, Display, Position, z-index, Overflow, Float, Inline Block, Align, Combinators, Pseudo-classes & elements, Opacity etc.
+    -   CSS Forms & Layouts
+    -   CSS Flexbox
+    -   CSS Grid
+    -   Advanced CSS - CSS Units, Shadows, Gradients, Transitions, Animations, Specificity etc.
 
-এটা রিয়াক্টের ফান্ডামেন্টাল কনসেপ্ট। রিয়াক্টের কাজের প্রসেসটাই এটা যে DOM এ কোন ইন্টারেকশন হলে সে নিজেই UI টা নতুন করে রেন্ডার করে দেয়। রিয়াক্ট এটা করে থাকে তার `Component` ও `state` এর মাধ্যমে ।
+-   [**Basic Tailwind CSS**](https://www.youtube.com/watch?v=X7XbjwD6fVY&list=PLHiZ4m8vCp9P23SqlHL0QAqiwS_oCofV2)
 
-`Component` ও `state` কি তা আমরা পরের সেকশনে জানতে পারবো ।
+    -   Tailwind Utilities
+    -   Responsive Variants
+    -   Hover, focus and other states
+    -   Dark Mode variant
+    -   Tailwind Directives
+    -   Tailwind Configurations
+    -   Theme Configurations
+    -   [Tailwind cn() utility](https://www.youtube.com/watch?v=y7DrXkGj7AU)
 
-**কেন আমরা রিয়াক্ট ব্যাবহার করবো ?**
+-   **Document Object Model (DOM)**
 
-**ভার্চুয়াল ডম কি ? এটা কিভাবে কাজ করে ?**
+    -   [DOM Basics - Basics, Method, Document, Elements, Forms, CSS, Events, Navigation, Nodes and Collections](https://www.youtube.com/watch?v=mPTkKnL2aNA&list=PLHiZ4m8vCp9OkrURufHpGUUTBjJhO9Ghy)
+    -   [DOM Advanced](https://www.youtube.com/watch?v=XY96d0vEdFk&list=PLHiZ4m8vCp9MJDxMOzhYVuTrO1b5n-Tq_)
 
-ভার্চুয়াল ডম কি তা জানার আগে চলুন জেনে আসি ডম কি জিনিস ?
+-   [**Basic JavaScript**](https://www.youtube.com/watch?v=rePN-VFo1Eo&list=PLHiZ4m8vCp9OkrURufHpGUUTBjJhO9Ghy)
 
-আসলে আমরা ওয়েব এর জগতে যা দেখতে পাই ,তার সবকিছুই হলো DOM । ব্রাউজার সুধ্মমাত্র ডম কেই চিনে,ব্রাউজার জানেনা আপনি কোন প্রোগ্রামিং ল্যাংগুয়েজ দিয়ে কোড করছেন,সে জানেনা আপনি কোন লাইব্রেরি ব্যাবহার করছেন। সে শুধু চিনে ডম কে। সে যেই DOM TREE টা পায়, সেটাই আসলে স্ক্রীনে শো করে ।
+    -   JS Basics - Statements, Expressions, Syntax, Variables, Operators, Data Types, Functions, Objects, Arrays, Events, Array and String Methods, Object Methods, Date, Conditionals, Error Handling, JavaScript OOP - classes and inheritance and Debugging
+    -   JS Web APIs - Forms, History, Geolocation, Storage, Worker and Fetch API
+    -   JS JSON
 
-**ব্রাউজার কিভাবে DOM রেন্ডার করে ?**
+-   [**JavaScript Advanced**](https://www.youtube.com/watch?v=KuhLGuNxF8U&list=PLHiZ4m8vCp9Nflbo9a0pZuLscG_Xc7DKq)
 
-চলুন দেখি ব্রাউজার কিভাবে DOM কে রেন্ডার করায় । নিচের ছবিটা বুঝার চেষ্টা করুন,
+    -   Solid JS Concepts - Scope, Hosting, Execution Context, Closures, Prototype, Recursion, Primitive vs Reference Data Types, Currying, Intersection Observer, Memoization, Event Propagation, Debounce etc.
+    -   [Asynchronous JavaScript](https://www.youtube.com/watch?v=IUBd76UQb34) - Callbacks, Promises and async-await
 
-![DOM-TREE](./assets/images/DOM.png)
+-   [**Modern JavaScript**](https://www.youtube.com/watch?v=PWXkYBmlbB4&list=PLHiZ4m8vCp9MFjMRp9EEHWKArbi0wdgXG)
 
-আমরা দেখতে পাচ্ছি যে উপরে একটা গ্রাফ এর মাদ্ধমে ব্রাউজার এর রেন্ডারিং প্রসেস দেখানো হয়েছে । এখানে আমরা কি দেখতে পাচ্ছি ? আমরা দেখতে পাচ্ছি যে, যখন ব্রাউজার কোন HTML CSS ফাইল পায়,তখন সেই ফাইলটা একটা পারসিং এর মদ্ধে দিয়ে নিয়ে যায়, এক্ষেত্রে HTML এর জন্য HTML PARSER ও CSS এর জন্য CSS PERSER ব্যাবহার হয়। এসব পারসার দিয়ে পারসিং এর পর ব্রাউসার HTML দিয়ে একটা DOM TREE বানায় এর CSS দিয়ে CSSOM নামে একটা STYLE RULES বানায় , এবং DOM TREE ও STYLE RULES একসাথে ATTACH হয়ে একটা RENDER TREE বানায়। এই RENDER TREE ব্রাউসারে একটা LAYOUT ফেস এর মদ্ধে দিয়ে যায়। এই LAYOUT ফেস এ DOM TREE টা ব্রাউসার এর কোথায় রেন্ডার হবে তার একটা CORDINATE রেডি হয়ে যায় । এবং ফাইনালি ব্রাউজার তার PAINTING মেকানিজম এর মাদ্ধমে তা ব্রাউসারে পেইন্ট করে দেয় এবং আমরা ফাইনাল আউটপুট দেখতে পাই।
+    -   Different ES6+ JS Syntaxes and concepts eg. Arrow function, Truthy/Falsy values, Ternary Operator, Different Array methods like find, filter, map, reduce, slice, splice, push, pop, concat, different looping strategies, Spread & Rest Operator, Array and Object Destructuring, Imports/Exports syntax, Template Literals, Sorting etc.
 
-**DOM কি আসলেই স্লো?**
+-   [**Git/GitHub**](https://www.youtube.com/watch?v=PWXkYBmlbB4&list=PLHiZ4m8vCp9MFjMRp9EEHWKArbi0wdgXG)
 
-নাহ, ডম কখনোই স্লো না । আসলে যদি ভালোভাবে কোড করা হয় তাহলে ডম যেকোন কিছুর থেকে ফাস্ট। কিন্তু বর্তমান বিশ্বে ওয়েব অ্যাপ্লিকেশনগুলো অনেক বেশি ইন্টারেক্টিভ,তাই যখনই ইউজার কোন ইন্টারেকশন করে তখন ব্রাউজারকে আবার তা নতুন করে পুরো ওয়েবসাইটটা রি-পেইন্ট করতে হয়। এইরকম যখন অনেকগুলো রিয়াকশনের কারনে ব্রাউজারকে বার বার রি পেইন্ট করতে হয় তখন সেই রি-পেইন্টিং প্রসেসটা স্লো হয়ে যায়,মুলত ডম কিন্তু স্লো নয় ।
+    -   [Basics of Git](https://www.youtube.com/watch?v=oe21Nlq8GS4)
+    -   [Important Git Commands](https://learnwithsumit.com/rnext/courses/rnext/git-github-refresher)
 
-**ভার্চুয়াল ডম কি ? কিভাবে ভার্চুয়াল ডম কাজ করে?**
+</details>
 
-ভার্চুয়াল ডম রিয়াক্ট এর একটা ফান্ডামেন্টাল বিষয় । রিয়াক্ট এর ভিত্তিটাই মূলত এই ভার্চুয়াল ডম ।
+<details>
+<summary>1. React Fundamentals</summary>
 
-ব্রাউজারের রি-পেন্টিং প্রসেসটা এপ্লিকেশনকে স্লো ডাউন করে দেয়, এই সমস্যা এড়ানোর জন্য আমরা কি করতে পারি ভাবুনতো। আমরা মূলত দুইটা ভাবে এটার সমাধান করতে পারি :
+You should know and be comfortable with **all of the following:**
 
-1.  আমরা ব্যাচ আপডেট করতে পারি
-2.  আমরা ডম ম্যানুপুলেশন কম করতে পারি।
+-   **Getting Started with React**
+    -   Introduction to React - Why React - Comparison with Vanilla JS
+    -   React Installation & Editor Setup with Vite
+    -   How React works - Virtual DOM
+    -   Basics of React Components
+    -   Basics of JSX: React's Markup
+    -   JavaScript in JSX
+    -   Passing Props to Components
+    -   Conditional Rendering
+    -   Rendering Lists
+    -   Pure Components
+    -   How to split larger components into smaller ones
+-   **Adding Interactivity**
 
-রিয়াক্ট তার ভার্চুয়াল ডমের মাদ্ধমে সেই কাজটাই করে । রিয়াক্ট একেবারে মিনিমাম ডম ম্যানুপুলেশন করে ।
+    -   Responding to Events - Event Handlers
+    -   Understanding States - React Component's Memory - useState
+    -   How State works in React
+    -   How Rendering works in React
+    -   Updating complex states immutably in React
 
-![verchualDom](./assets/images/verdom.png)
+-   **React State Management Deep Dive**
 
-যখন এপ্লিকেশনে কোন ইউজার কোন ইন্টারেকশন করে তখন যদি UI তে কোন চেঞ্জ করতে হয় তখন রিয়াক্ট সরাসরি HTML এর DOM TREE টাকে চেঞ্জ করে দেয়না। যখনি UI তে কোন চেঞ্জ আসে,রিয়াক্ট তার ভার্চুয়াল DOM এর সাহায্যে UI এর একটা রেপ্লিকা বা কপি বানিয়ে নেয় । তারপর রিয়াক্ট তার একটা নিজস্ব বানানো এলগরিদম `Diffng` বা `Reconciliation` এলগরিদম এর মাদ্ধমে চেক করে যে UI এর ঠিক কোন জায়গায় চেঞ্জ হয়েছে । এতে করে পুরো ওয়েবসাইটটা রি-রেন্ডার না করে শুধুমাত্র যেই অংশে পরিবর্তন হয়েচে,সেই অংশটুকু DOM এ আপডেট করে দেয়। এতে করে রিয়াক্ট মিনিমাম ডম অপারেশনের মাদ্ধমে এপ্লিকেশনএর পার্ফমেন্স ইম্প্রুভ করে ।
+    -   Declarative vs Imperative UI
+    -   Thinking UI Declaratively
+    -   Finding & Structuring React States
+    -   Connecting Event Handlers to React
+    -   Sharing State between components
+    -   Lifting State up
+    -   Extracting State Logic into Reducers
+    -   useReducer Hook
+    -   How to use Immer with React for concised immutable State Update
+    -   Passing Data Deeply inside React Components
+    -   Avoiding Prop Drilling - Context API & useContext Hook
+    -   Combine context and reducer to write scalable code
+
+</details>
+
+<details>
+<summary>2. Advanced React</summary>
+
+-   Referencing values with Refs - useRef hook
+-   Manipulating the DOM with Refs
+-   Synchronizing with Effects - useEffect hook
+-   Separating events from Effects
+-   Removing Effect Dependencies
+-   Performance optimization with useCallback and useMemo hook
+-   Reusing logic with Custom Hooks
+-   Calling APIs from Back-end with React
+
+</details>
+
+<details>
+<summary>3. Advanced State Management</summary>
+
+##### [Using Redux / Toolkit](https://learnwithsumit.com/think-in-a-redux-way)
+
+-   ##### Redux
+
+-   ##### Redux Thunk
+
+    -   ###### What is Redux Thunk
+    -   ###### Using Steps of Redux Thunk
+        নিচের কিছু স্টেপ ফলো করে আমরা `Redux Thunk` ব্যাবহার করতে পারি
+
+</details>
+
+<details>
+<summary>4. Styling Solutions</summary>
+
+-   [**Tailwind**](https://tailwindcss.com/)
+-   [**CSS Modules**](https://www.makeuseof.com/react-components-css-modules-style/)
+-   [**Styled Components**](https://styled-components.com/)
+-   React UI Component Library - [Shadcn](https://ui.shadcn.com/)
+-   [React UI Component Library - Keep React](https://youtu.be/mVXNUMBtGEA)
+-   [**Material UI**](https://mui.com/)
+-   [**Chakra UI**](https://chakra-ui.com/)
+-   [**Ant Design**](https://ant.design/docs/react/introduce)
+
+</details>
+
+<details>
+<summary>5. React Ecosystem & Use Cases</summary>
+
+-   [React Router DOM](https://youtu.be/34tjWL9wi4g)
+-   API Request with Axios in React
+-   React Suspense & Error Boundaries
+-   React Lazy Load
+-   React Infinite Scroll
+-   Uncommon React Hooks - useDebugValue, useDeferredValue, useId, useImperativeHandle, useInsertionEffect, useLayoutEffect and useTransition
+-   **React Authentication**
+
+    -   How to handle user sign in (email, password, JWT)
+    -   How to handle access tokens and token refreshes
+    -   Social sign in (Google, Facebook, GitHub, etc.)
+    -   [Using Supabase](https://supabase.com/)
+    -   [Using Firebase](https://firebase.google.com/docs/auth)
+    -   [Using Clerk](https://clerk.com/)
+
+-   **Form Handling in React**
+
+    -   How to validate user input in forms (emails, passwords, etc.)
+    -   How to send form data to server
+    -   How to handle file uploads
+    -   [Using React Hook Form](https://react-hook-form.com/)
+    -   [Using Formik](https://formik.org/docs/overview)
+
+-   [**Accessibility**](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_accessibility)
+    -   Understanding why accessibility is important
+    -   [Using semantic HTML](https://www.semrush.com/blog/semantic-html5-guide/)
+    -   How to implement keyboard navigation
+    -   How to add aria labels
+    -   [Using React Aria](https://react-spectrum.adobe.com/react-aria/)
+-   **Testing**
+    -   [How to implement unit tests](https://www.freecodecamp.org/news/how-to-write-unit-tests-in-react/)
+        -   [Using React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+        -   [Using Jest](https://jestjs.io/)
+    -   [How to implement e2e integration tests](https://youtu.be/6BkcHAEWeTU)
+        -   [Using Cypress](https://www.cypress.io/)
+        -   [Using Playwright](https://playwright.dev/)
+
+</details>
+
+<details>
+<summary>6. React Frameworks</summary>
+
+You should have worked with **one of the following:**
+
+-   [**Vite**](https://vitejs.dev/)
+    -   How to run a simple React application
+-   [**Next.js**](https://nextjs.org/)
+    -   [Understanding file-based routing](https://nextjs.org/docs/app/building-your-application/routing)
+    -   [Understanding Next Auth](https://next-auth.js.org/)
+    -   [Understanding server components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+    -   [Understanding server actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
+-   [**Remix**](https://remix.run/)
+
+</details>
+
+<details>
+<summary>7. Beyond React</summary>
+
+-   **Team player**
+    -   How to work within a team
+    -   How to perform code reviews
+    -   How to give and receive feedback
+-   **Efficiency**
+    -   How to prioritise tasks
+    -   How to handle tech debt
+    -   How to meet deadlines and goals
+-   **Continuous Learning**
+    -   How to continuously learn and grow
+    -   How to stay up to date with your skills
+-   **Networking & Communication** - Going to meetups or events - Contributing to open source projects - Networking within the company you work in
+</details>
 
