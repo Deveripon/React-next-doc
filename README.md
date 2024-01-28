@@ -130,8 +130,16 @@ You should know and be comfortable with **all of the following:**
 -   ##### Redux Thunk
 
     -   ###### What is Redux Thunk
+        `Redux Thunk` হলো `Redux` এর একটি `middleware` যা আমাদের এপ্লিকেশনের asyncronus টাস্ক গুলো ম্যানেজ করতে হেল্প করে । `React` এপ্লিকেশনের asyncronus টাস্ক গুলো ম্যানেজ করার জন্য `Redux Thunk` ব্যাবহার করা হয় ।
     -   ###### Using Steps of Redux Thunk
-        নিচের কিছু স্টেপ ফলো করে আমরা `Redux Thunk` ব্যাবহার করতে পারি
+
+        নিচের কিছু স্টেপ ফলো করে আমরা `Redux Thunk` ব্যাবহার করতে পারি:
+
+        -   **Step 1 : Install Redux Thunk**:
+
+        ```bash
+         npm i redux-thunk
+        ```
 
 </details>
 
