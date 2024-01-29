@@ -232,3 +232,148 @@ You should have worked with **one of the following:**
 -   **Networking & Communication** - Going to meetups or events - Contributing to open source projects - Networking within the company you work in
 </details>
 
+### How to pass data to deeply nested components in React ?
+
+-   #### Props Drilling
+
+    -   এক কম্পোনেন্ট থেকে আরেক কম্পোনেন্ট এ `Props` আকারে ডাটা পাস করে আমরা কাজ করতে পারি। এই `Props` পাস করে করে নেস্টেট কম্পোনেন্ট গুলোতে ডাটা পাস করার টেকনিক কে বলা হয় ` Propos Drilling Technique` এই `Props Drilling` হলো `unidirectional` অর্থাৎ একমুখী ডাটা পাস করা যায়। রিয়াক্টে সবসময় `Parent Component` থেকে `Child Component` এ ডাটা পাস করা যায় ।
+
+    যদি আমাদের কখনো `Child Component` থেকে `Parent Component` এ ডাটা পাস করার প্রয়োজন পরে তাহলে আমরা রিয়াক্টে ডাটা পাস করার অন্য আরেকটি টেকনিক `Render Props Pattern (RP Pattern)` ব্যাবহার করতে পারি ।
+
+-   #### 1. Render Props
+
+    -   `Render Props` হলো রিয়াক্ট এ `Child Component` থেকে `Parent Component` ডাটা পাস করার একটা টেকনিক ।
+
+        এতে আমরা `Parent Component` এ কোন `function` লিখে তা `Props Drilling` এর মাধ্যমে `Parent Component` এ `function` রেফারেন্স টা পাস করে তার `arguments` আকারে `Child Component` থেকে ডাটা `Parent Component` এ পাস করতে পারি ।
+
+-   #### 2. HOC Pattern
+
+    -   ` HOC Pattern (Higher Order Components Pattern)`
+
+-   #### 3. Context API
+
+    -   জাভাস্ক্রিপ্ট এর `Context Api` ব্যাবহার করে `React` একটা হুক বানিয়েছে `useContext` নামে। এই হুক ব্যাবহার করে আমারা যেকোনো কম্পোনেন্ট থেকে যেকোনো কম্পোনেন্টে ডাটা পাস এবং রিসিভ করতে পারি । সেক্ষেত্রে যত ডিপলী নেস্টেট কম্পোনেন্ট থাকুক না কেন আমরা নিশ্চিন্তে এক কম্পোনেন্ট থেকে আরেক কম্পোনেন্ট এ ডাটা পাস করতে পারবো ।
+
+-   #### 4. Redux Store Provider
+    -   Redux State management Library ব্যাবহার করে আমরা ডাটা যেকোনো কম্পোনেন্ট এ পাস করতে পারি ।
+
+### How to Manage Complex States in React
+
+রিয়াক্ট এর কমপ্লেক্স স্টেট গুলো ম্যানেজ করার জন্য বেশ কিছু টেকনিক আছে , তা হলো ঃ
+
+#### 1. useReducer Hook
+
+-   `useReducer` হলো রিয়ক্ট এর একটি হুক যা জাভাস্ক্রিপ্ট এর `Array.reducer()` মেথড টা ইউজ করে বানানো হয়েছে । এতে করে আমরা `React` এর কমপ্লেক্স স্টেট গুলো খুব সহজে ম্যানেজ করতে পারি । নিচে `useReducer` হুক ব্যাবহার করার স্টেপ বাই স্টেপ ইন্সট্রাকশন দেয়া হলো ঃ
+
+ধরা যাক আমরা একটা `Counter` বানাচ্ছি ।
+
+## ` #Step 1 :`
+
+প্রথমে আমাদের একটা `reducer function` বানানো লাগবে যেকোনো নামে,তবে বুঝার সুবিধার জন্য `Counter` নামেই ফাংশনটা বানানো উচিত। আমারাদের কোড যেন সুন্দর থাকে, তাই আমরা ফাংশন টা একটা আলাদা ফাইলে বানাবো এবং সেখানে থেকে `function` টাকে `export` করে দিবো যাতে অন্য যেকোনো জায়গায় ফাংশনটা ব্যাবহার করতে পারি।
+
+```javascript
+//CounterReducer.js
+export const counterReducer = () => {};
+```
+
+এখানে `counterReducer function` টি `parameter` হিসেবে দুইটি জিনিস নেয়,
+
+1. state : `state` এ আমরা আমাদের স্টেট এর ভ্যালু পাই ।
+2. action: `action` এ আমরা একটা অবজেক্ট পাই । এই অবজেক্ট এর `property` হিসেবে আমরা `type` আর `payload` পাই।
+
+```javascript
+//CounterReducer.js
+export const counterReducer = (state, action) => {};
+```
+
+`counterReducer function` টি বিভিন্ন লজিকের বিভিন্ন `action` এর বিপরীতে `state` এর ভ্যালু আপডেট করবে । এক্ষেত্রে আমরা `switch case` ব্যাবহার করবো ।
+
+```javascript
+//CounterReducer.js
+const initialValue = 0;
+export const counterReducer = (state = initialValue, action) => {
+    switch (action.type) {
+        case "INCRIMENT": {
+            return state + 1;
+        }
+        case "DECRIMENT": {
+            return state - 1;
+        }
+        default: {
+            return state;
+        }
+    }
+};
+```
+
+উপরে `action` এর যেই `case` গুলো ব্যাবহার করা হয়েছে তা আমরা কম্পোনেন্ট থেকে `dispatch` করবো ।
+
+## ` #Step 2 :`
+
+এই স্টেপে আমরা `component` এ `reducer` এর স্টেট এর ভ্যালু ব্যাবহার করবো ।
+
+```javascript
+//Counter.jsx
+ export default function Counter(){
+    return <button>
+        <h1> Count : 0</h1>
+        <button>Incriment</button>
+        <button>Decriment</button>
+    </>
+ }
+```
+
+উপরের `Counter component` এ আমরা `react` এর `useReducer` হুক ব্যাবহার করবো । `useReducer` হুক দুইটা টুপল `tuple` রিটার্ন করে, একটি হলো `state` এবং অপরটি হলো `dispatch` এবং হুকটি `parameter` এ দুইটি জিনিস রিসিভ করে , একটি হলো `reducerFunction` এবং অপরটি হলো `initialValue`.
+
+`initialValue` যেকোনো টাইপের হতে পারে। যেহেতু আমরা `counter` বানাচ্ছি ,তাই আমরা `initialValue` নাম্বার দিচ্ছি ,এবং সেটা `state` এর ডিফল্ট ভ্যালু হিসেবে সেট করে দিচ্ছি ।
+
+```javascript
+//Counter.jsx
+import {useReducer} from "react"
+import {counterReducer} from "./reducer/CounterReducer.js"
+
+ export default function Counter(){
+
+ const [count,dispatch]= useReducer(counterReducer,0)
+
+    return <button>
+        <h1> Count : 0</h1>
+        <button>Incriment</button>
+        <button>Decriment</button>
+    </>
+ }
+```
+
+`count` এর ভিতর আমরা `Counter` এর স্টেট টা পাবো এবং তা `Count` এর ভ্যালু হিসেবে সেট করে দিবো ।
+
+`button` গুলোর `onClick` হান্ডেলারে আমরা `action dispatch` করবো ।
+
+```javascript
+//Counter.jsx
+import {useReducer} from "react"
+import {counterReducer} from "./reducer/CounterReducer.js"
+
+ export default function Counter(){
+
+ const [count,dispatch]= useReducer(counterReducer,0)
+    //action handler
+    function handleIncrement(){
+        return dispatch({type:"INCRIMENT"})
+    }
+
+     function handleDecrement(){
+    return dispatch({type:"DECRIMENT"})
+    }
+
+    return <button>
+        <h1> Count : {count} </h1>
+        <button onClick={handleIncriment}>Incriment</button>
+        <button onClick={handleDecriment}>Decriment</button>
+    </>
+ }
+```
+
+#### 2. Redux Core
+
+#### 3. Redux Toolkit
+
