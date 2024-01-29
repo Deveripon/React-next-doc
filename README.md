@@ -234,6 +234,12 @@ You should have worked with **one of the following:**
 
 ### How to pass data to deeply nested components in React ?
 
+-   Props Drilling
+-   Render Props
+-   HOC Pattern
+-   Context API
+-   Redux Store Provider
+
 -   #### Props Drilling
 
     -   এক কম্পোনেন্ট থেকে আরেক কম্পোনেন্ট এ `Props` আকারে ডাটা পাস করে আমরা কাজ করতে পারি। এই `Props` পাস করে করে নেস্টেট কম্পোনেন্ট গুলোতে ডাটা পাস করার টেকনিক কে বলা হয় ` Propos Drilling Technique` এই `Props Drilling` হলো `unidirectional` অর্থাৎ একমুখী ডাটা পাস করা যায়। রিয়াক্টে সবসময় `Parent Component` থেকে `Child Component` এ ডাটা পাস করা যায় ।
@@ -258,6 +264,11 @@ You should have worked with **one of the following:**
     -   Redux State management Library ব্যাবহার করে আমরা ডাটা যেকোনো কম্পোনেন্ট এ পাস করতে পারি ।
 
 ### How to Manage Complex States in React
+
+-   useReducer Hook
+-   useReducer with Context
+-   Redux Core
+-   Redux Toolkit
 
 রিয়াক্ট এর কমপ্লেক্স স্টেট গুলো ম্যানেজ করার জন্য বেশ কিছু টেকনিক আছে , তা হলো ঃ
 
@@ -373,7 +384,78 @@ import {counterReducer} from "./reducer/CounterReducer.js"
  }
 ```
 
-#### 2. Redux Core
+#### 2. Context With Reducer
 
-#### 3. Redux Toolkit
+## `#Step : 1`
+
+প্রথমে আমাদের একটা `context` বানাতে হবে । সেজন্য একটা ফাইল নিব `CouterContext.js` নামে । এবং রিয়াক্টের `createContext` ব্যাবহার করে একটা `context` বানাতে হবে ।
+
+```javascript
+//counterContext.js
+import { createContext } from "react";
+export const counterContext = createContext(null);
+```
+
+## `#Step : 2`
+
+`Context` এর `Provider` এর ভ্যালুতে আমারা ডাটা পাস করবো ।
+
+```javascript
+//counterContext.js
+import { createContext,useReducer } from "react";
+export const counterContext = createContext(null);
+
+export default counterContextProvider({children}){
+
+ const [count,dispatch]= useReducer(counterReducer,0);
+    return(
+     <>
+        <counterContext.Provider value = {{count,dispatch}}>
+            {children}
+        </counterContext.Provider>
+     </>
+    )
+}
+```
+
+## `#Step : 3`
+
+আমরা যেই `component` থেকে তার সকল নেস্টেট `ChildComponent` এ ডাটা এক্সেস করতে চাইবো সেই `component` কে আমরা `contextProvider` দিয়ে wrap করে দিবো ।
+
+```javascript
+//Main.jsx
+import CounterContextProvider from "../context/counterContext";
+<CounterContextProvider>
+    <App />
+</CounterContextProvider>;
+```
+
+## `#Step : 4`
+
+এবার আমারা যেই `component ` এ ভ্যালু এক্সেস করতে চাইবো সেখান থেকে শুধু `context` এর মাধ্যমে ডাটা রিসিভ করে বিভিন্ন `action dispatch` করতে পারবো ।
+
+```javascript
+//Counter.jsx
+ export default function Counter(){
+    const {count,dispatch} = useContext(couterContext)
+    //action handler
+    function handleIncrement(){
+        return dispatch({type:"INCRIMENT"})
+    }
+
+     function handleDecrement(){
+    return dispatch({type:"DECRIMENT"})
+    }
+
+    return <button>
+        <h1> Count : {count} </h1>
+        <button onClick={handleIncriment}>Incriment</button>
+        <button onClick={handleDecriment}>Decriment</button>
+    </>
+ }
+```
+
+#### 3. Redux Core
+
+#### 4. Redux Toolkit
 
