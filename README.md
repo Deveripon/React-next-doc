@@ -459,3 +459,77 @@ import CounterContextProvider from "../context/counterContext";
 
 #### 4. Redux Toolkit
 
+# useEffect Hook in React
+
+**Syncronising With Effect**
+
+-   ### কেন useEffect প্রয়োজন ?
+
+    -   রিয়াক্টে আমাদের এমন কিছু টাস্ক সম্পন্ন করতে হয়,যা কোন ইউজারের ইন্টারেকশনের উপর ডিপেন্ড করেনা বরং সেগুলো আমাদের অটোমেটিক করতে হয় । এইসব কাজ গুলো হলো `side effect` । এগুলো কোন `event handler` এর উপর ডিপেন্ট করে কল হয়না ,বরং `Component` লোড হয়ে যাওয়ার পর আমাদের অটোমেটিক করে দিতে হয়। এই সমস্ত কাজ সম্পন্ন করার জন্য প্রয়োজন হয় `useEffect` এর ।
+
+-   ### useEffect কিভাবে লিখতে হয় ?
+
+    -   তিনটা স্টেপ এ `useEffect` লিখতে হয় ।
+
+        -   **Declare an effect**
+        -   **Specify the dependencies**
+        -   **Add cleanup if needed**
+
+    -   **Declare an effect**
+
+        -   To declare an Effect in your component, import the useEffect Hook from React:
+
+        ```
+        import { useEffect } from 'react';
+        ```
+
+        Then, call it at the top level of your component and put some code inside your Effect:
+
+        ```javascript
+        useEffect(() => {
+            //code will go here
+        });
+        ```
+
+    -   **Specify the Effect dependencies**
+
+        ডিফল্টভাবে যখন কম্পোনেন্ট মাউন্ট হয় তখনি useEffect কল হয় । তবে আমরা চাইলে `useEffect` ফাংশনের সেকেন্ড প্যারামিটার এ বলে দিতে পারি যে প্রথমবার লোড হওয়ার পর আর কখন কখন useEffect রান হবে। এজন্য useEffect এর সেকেন্ড প্যারামিটার এ আমাদেরকে `dependencies` গুলো বলে দিতে হয় ।
+
+        `[] = লোড হওয়ার পর মাত্র একবার রান হবে পরে স্টেট চেঞ্জ হয়ে কম্পোনেন্ট রিরেন্ডার হলেও আর কখনোই রান হবেনা` ,
+
+        `dependency= ডিপেন্ডেন্সি বলে দেয়া মানে হলো ডিপেন্ডেন্সি চেঞ্জ হলেই useEffect আবার রান হবে `
+
+    -   **Add cleanup if needed** useEffect রান হওয়ার পর যখন কম্পোনেন্ট আনমাঊন্ট হবে তখন কিছু কিছু ক্ষেত্রে আমাদের কে useEffect cleanup করে দিতে হয় ,নাহলে effect যদি কম্পোনেন্ট Unmount হওয়ার পরও চলতে থাকে ,তাহলে সেকেন্ড টাইম যখন আবার কম্পোনেন্ট Mount হবে তখন তখনও যদি আগের effect রানিং থাকে এবং তার উপর আবারো effect কল হয় তাহলে এপ্লিকেশনে অনেক error and Bugs তৈরি হতে পারে।
+
+### How to handle the Effect firing twice in development?
+
+এজন্য প্রথমে আমাদের বুঝতে হবে যে,কেন `development` মুড এ আমাদের কম্পোনেন্ট দুইবার রান হয় ? এটা হয় মূলত `unpredictable bugs` খুঁজে বের করার জন্য। `React` ডেভেলপমেন্ট মুড এ প্রতিটা কম্পনেন্ট দুইবার করে রান করে,যাতে আমরা বুঝতে পারি যে আমাদের কম্পোনেন্টগুলো যদি দুইবার `mount` হয় তাহলে কোন `bug` তৈরি হয় নাকি । এজন্য রিয়াক্ট আমাদের প্রতিটা কম্পোনেন্ট প্রথমে Mount হবার পর সাথে সাথেই আবার `Unmonut` করে দিয়ে পুনরায় আবার `Mount` করে ।
+
+### Mount,Unmount, Remount and Render, re-render
+
+     ১। Mount = কম্পোনেন্ট টা ভিজুয়াল হওয়া । কোন কম্পোনেন্ট যখন আমাদের UI তে ভিজুয়াল হয় তখন সেটা হলো Mount.
+
+     ২। Unmount = কোন কম্পোনেন্ট যখন আমাদের UI থেকে রিমুভ হয়ে যায় তখন তা হলো Unmount.
+
+     ৩। Remount = কোন কম্পোনেন্ট UI থেকে রিমুভ হয়ে যাওয়ার পর তা আবারো UI তে ভিজুয়াল হউয়া ।
+
+     ৪। Render = Render হলো react এর একটা কাজ ,যা রিয়াক্ট তার নিজের ভিতরেই করে থাকে। Render হলো মূলত কম্পোনেন্টটা লোড হওয়া ।
+
+     ৫। Re-render = rerender ও রিইয়াক্ট তার নিজের ভিতরেই করে । এর মানে হলো কম্পোনেন্ট রিলোড দেয়া ।
+
+### কিভাবে development মুড এ useEffect কাজ করছে ? কিভাবে দুই বার রান করছে ? কখন Mount/UnMount/ReMount হচ্ছে ?
+
+-   প্রথমত কম্পোনেন্ট `Mount` হওয়ার সাথে সাথেই কম্পোনেন্ট আগে DOM এ render হয় । কপমোনেন্ট DOM এ রেন্ডার হওয়ার পর সাথেই সাথেই `useEffect` একবার রান হয়।
+
+-   যেহেতু রিয়াক্ট এর ডেভেলপমেন্ট মুড এ প্রতিটা কম্পোনেন্ট দুইবার রান হয় তাই,প্রথমবার রান হওয়ার পর কম্পোনেন্ট unMount হয়ে যাবে এবং re-mount হয়ে যাবে ।
+
+-   কম্পোনেন্ট যখন আবার re-mount হবে তখন useEffect আবার রান হবে । অর্থাৎ development mood এ প্রথমবারে কম্পোনেন্ট দুইবার Mount `(Mount -> UnMount -> Re-Mount)` হওয়ার কারনে `useEffect` ও দুইবার রান হবে ।
+
+-   যদি useEffect এর ডিপেন্ডেন্সি বলে দেয়া থাকে তাহলে প্রথমবার useEffect রান হওয়ার পর একমাত্র যখন dependency চেঞ্জ হবে তখন আবার পুনরায় রান হবে । পুনরায় রান হওয়ার সময় যদি useEffect এ cleanup function থাকে,তাহলে প্রতিবার নতুন করে রান হওয়ার আগে আগের রান হওয়া effect টা clear করে দিবে।
+
+    যদি dependency তে একটা [] থাকে তাহলে শুধু কম্পোনেন্ট Mount হওয়ার পর একবার রান হবে পরে আর কখনোই রান হবেনা ।
+
+    যদি dependency না দেয়া থাকে তাহলে প্রতিবার কম্পোনেন্ট re-render হলেই useEffect রান হবে ।
+
+**যদি cleanup function থাকে,তাহলে একমাত্র যখন কম্পোনেন্ট unMount হবে তখনি cleanup function রান হবে। কম্পোনেন্ট unMount না হলে কখনই cleanup function কল হবেনা**
+
