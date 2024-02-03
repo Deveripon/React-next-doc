@@ -459,6 +459,142 @@ import CounterContextProvider from "../context/counterContext";
 
 #### 4. Redux Toolkit
 
+নিচের স্টেপ গুলোর মাধ্যমে আমরা রিডাক্স টুলকিট ব্যাবহার করতে পারি ।
+
+`- Step : 1 :`
+
+**Create A Slice**
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+const someThingSlice = createSlice();
+```
+
+**Export Reducer from Slice**
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+const someThingSlice = createSlice();
+
+export default someThingSlice.reducer;
+```
+
+**Add Slice Name,initialState,reducers,extrareducers**
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+const someThingSlice = createSlice({
+    name: "someThingSlice",
+    initalState: {
+        data: [],
+    },
+    reducers: {},
+    extrareducers: (builder) => {},
+});
+
+export default someThingSlice.reducer;
+```
+
+**Add reducer Actions**
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+const someThingSlice = createSlice({
+    name: "someThingSlice",
+    initalState: {
+        data: [],
+    },
+    reducers: {},
+    extrareducers: (builder) => {},
+});
+
+export default someThingSlice.reducer;
+```
+
+**Handle Asyncronus call in ApiSlice file**
+
+```javascript
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+export const createNewPost = createAsyncThunk(
+    "post/createNewPost",
+    async (data) => {
+        try {
+            const response = await axios.post("http://localhost:7070/posts", {
+                ...data,
+                id: crypto.randomUUID(),
+            });
+            return response.data;
+        } catch (err) {
+            throw new Error(err);
+        }
+    }
+);
+```
+
+**Add Extra Reducers when use Api for CRUD**
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+import { createNewPost } from "./postApiSlice";
+
+export const postSlice = createSlice({
+    name: "post",
+    initialState: {
+        loading: false,
+        error: null,
+        message: null,
+        postData: [],
+    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(createNewPost.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(createNewPost.fulfilled, (state, action) => {
+                state.loading = false;
+                state.postData = [...state.postData, action.payload];
+            })
+            .addCase(createNewPost.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            });
+    },
+});
+
+export default postSlice.reducer;
+```
+
+-   `Step : 2 :`
+
+**Create Store and Configure Store**
+
+` create a file named 'store.js'`
+
+```javascript
+//store.js
+import { configureStore } from "@reduxjs/toolkit";
+import SomethingSliceReducer from "../SomethingSlice";
+export const store = configureStore({
+    reducer: {
+        someThing: SomethingSliceReducer,
+    },
+});
+```
+
+-   `Step: 3 : `
+
+**Pass store via Provider to App Component**
+
+```javascript
+//main.jsx
+import { Provider } from "react-redux";
+<Provider store={store}>
+    <App />
+</Provider>;
+```
+
 # useEffect Hook in React
 
 **Syncronising With Effect**
