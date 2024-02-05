@@ -348,7 +348,105 @@ You should know and be comfortable with **all of the following:**
 
 -   **Adding Interactivity**
 
-    -   Responding to Events - Event Handlers
+    -   #### Responding to Events - Event Handlers
+
+        আমরা রিয়াক্ট কম্পোনেন্ট গুলোতে ইউজারের বিভিন্ন ইন্টারেকশনে ইভেন্ট হেন্ডেলার বসাতে পারি । যা আমাদের UI কে ইন্টারেক্টিভ করে তুলে।
+
+        **Event Deligation in Javascript**
+
+        `event deligation` হলো এমন একটা টেকনিক,যা দিয়ে আমরা একটা ইভেন্ট লিসেনার দিয়ে অনেকগুলো element কে কনট্রোল করতে পারি এবং যদি আমদের আইটেম বাড়ে তাতেও আমদের event handler ঠিক কাজ করবে ।
+
+        ধরা যাক,আমাদের একটা ডাটা লিস্ট আছে । যেমনঃ
+
+        ```html
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Orange</li>
+        </ul>
+        ```
+
+        এই লিস্ট এর ডাটাগুলো সব API থেকে আসছে,এবং ভবিষ্যতে ডাটা বারতেও পারে কমতেও পারে,যা আমরা জানিনা । এখন ধরা যাক যে আমাদের লিস্ট এ আরও কিছু আইটেম চলে আসলো ,
+
+        ```html
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Orange</li>
+            <li>Mango</li>
+            <li>Guava</li>
+        </ul>
+        ```
+
+        এমন সিচুয়েশনে আমাদেরকে একটাই ইভেন্ট হেন্ডেলার বানাতে হবে যা দিয়ে সকল কম্পোনেন্টকে কনট্রোল করা যাবে এবং যদি আইটেম আরও বাড়ে তাতেও আমাদের ইভেন্ট হেন্ডেলার ঠিক ঠাক ভাবে কাজ করবে।
+
+        এক্ষেত্রে আমরা list of items এর উপর ইভেন্ট হেন্ডেলার না নিয়ে তাদের প্যারেন্ট ইলিমেন্ট এর উপর ইভেন্ট হেন্ডেলার নিবো,তাহলে সকল লিস্ট আইটেম আমার ইভেন্ট হেন্ডেলার এর আন্ডারে চলে আসবে।
+
+        `element.matches("something")` মাধ্যমে আমরা ইলিমেন্ট চেক করে চাইলে কন্ডিশনালি ইভেন্ট হেন্ডেলার ব্যাবহার করতে পারি ।
+
+        **Event Propagation: Bubbling and Capturing**
+
+        Propagation মানে হলো চলাচল করা বা ছড়িয়ে যাওয়া । জাভাস্ক্রিপ্টে event Propagation মানে হলো জাভাস্ক্রিপ্টে যে ইভেন্টগুলো আছে তা কোন ORDER এ চলাচল করবে ।
+
+        ```jsx
+        <div
+            onClick={() => {
+                alert("clicked on Parent Div");
+            }}
+            className='ParentDiv'>
+            <div className='childComponent'>
+                <div className='oneMoreDeepChild'>
+                    <button
+                        onClick={() => {
+                            alert("clicked on Button");
+                        }}>
+                        Click Me
+                    </button>
+                </div>
+            </div>
+        </div>
+        ```
+
+        উপরের কম্পোনেন্টটিতে দেখা যাচ্ছে যে,একটা নেস্টেড কম্পোনেন্ট আছে,যার প্যারেন্ট `div` এ একটা `eventHandler` এ একটা এলার্ট দেয়া আছে এবং সেই সাথে একবারে শেষের চাইল্ড কম্পোনেন্ট `button` এ একটা `eventHandler` দেয়া আছে। এখন কথা হলো যদি আমরা `button` এ ক্লিক করি তাহলে প্যারেন্ট কম্পোনেন্ট এও তো ক্লিক পরে যাবে । এমতবস্থায় আমদের কোন ইভেন্ট হেন্ডেলারটি আগে রান হবে ?
+
+        by Default দুটো ইভেন্ট হেন্ডেলার ই রান হবে,তবে সবার আগে বাটন এর ইভেন্ট হেন্ডেলার আগে রান হবে তারপর প্যারেন্ট কম্পোনেন্ট এর ইভেন্ট হেন্ডেলার রান হবে । এইযে একটা কম্পনেন্ট এ ক্লিক করলে অপর কম্পোনেন্টটাও ট্রিগার হয়ে যাচ্ছে এটাকে বলা হয় `Event Propagation`
+
+        **Event Bubling**
+
+        by default ইভেন্ট হেন্ডেলার ভিতর থেকে কল হয়ে বাহিরের দিকে যায়,উপরের এক্সাম্পল অনুযায়ী প্রথমে `button` এর ইভেন্ট হেন্ডেলার রান হবে তারপর প্যারেন্ট এর ইভেন্ট হেন্ডেলার রান হবে । এইযে ইভেন্টগুলো ভিতর থেকে কল হয়ে বাহিরের দিকে যাচ্ছে, এটাকে bubble এর সাথে তুলনা করা হয়েছে,আর এজন্য এটাকে বলা হয় `event Bubbling`
+
+        **Event Trickling / Event Capturing**
+
+        যেহেতু by default ইভেন্ট ভিতরের দিক থেকে কল হয়ে বাহিরের দিকে যায় ,এই বিহেভিয়ার চেঞ্জ করার জন্য মূলত ইভেন্ট কেপচারিং করা হয় , এজন্য আমদের ইভেন্ট হেন্ডেলারের third parameter এ capture:true দিয়ে দিলেই হয়ে যাবে। এটাকে বলা হয় `event capturing / event trickling`
+
+        ```javascript
+        element.addEventListener(
+            "click",
+            function () {
+                //write some logic here
+            },
+            { capture: true }
+        );
+        ```
+
+        **e.target**
+
+        আমরা যখন কোন element এর উপর ক্লিক করি বা pointer করি তখন targeted element টা হলো `e.target`
+
+        **e.current.target**
+
+        কোন একটা pointer এ যদি multiple element target হয় তখন ১ম যেই element target হয়েছে সেটা হলো `e.current.target`
+
+        **Event Propagation in React**
+
+        `javascript` এর সকল ইভেন্ট রিয়াক্ট এ propagation হয় তবে শুধুমাত্র `onScroll` event এ রিয়াক্ট propagate করেনা ।
+
+        **Stop Propagation in React**
+
+        ```javascript
+        e.stopPropagation(); // এভাবে আমরা রিয়াক্টে প্রপাগেশন স্টপ করতে পারি ।
+        ```
+
     -   Understanding States - React Component's Memory - useState
     -   How State works in React
     -   How Rendering works in React
