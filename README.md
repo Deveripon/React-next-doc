@@ -69,10 +69,84 @@ You should know and be comfortable with **all of the following:**
 
 You should know and be comfortable with **all of the following:**
 
--   **Getting Started with React**
-    -   Introduction to React - Why React - Comparison with Vanilla JS
-    -   React Installation & Editor Setup with Vite
-    -   How React works - Virtual DOM
+-   ## **Getting Started with React**
+
+    -   #### Introduction to React - Why React - Comparison with Vanilla JS
+
+        <blockquote><i>React is a javascript library which is created for building web and native user interfaces. In 2011 a facebook engineer named “JORDAN WALKE” created React js . he was inspired by a php library called XHP-JS. React was first used in facebook timeline in 2011 and then 2012 used in Instagram. Though it is very affective,that’s why facebook makes it a opensource for all.</i></blockquote>
+
+         <blockquote><i>In vanila javascript  after a user interaction UI have to change manualy,In a large project which is a very costly and difficult to maintain. **Facebook** also face this problem as well.thats why they think seriously and create React js. React helps us to get rid of this problem. **In a react application when user interact,and after user interaction we just need to change the data or state,react automaticaly change the UI. we don’t need to change the UI manualy. this is the main beauty of React. and also react’s each component have independent State. which means , Every component and its states are separate.**
+        Lets think an example:
+
+        This is a simple product card. And we have a task that “ when a user click on Add to cart button ,the total price will multiply the price according to the click count. Which means If a user click Add to card button once total price should be 6000 and if click twice,the total price will be 12000 and so on.."
+
+        pretty simple task write?
+
+        **Lets do it with vanila javascript firtst:**
+
+        1. We have to select all the HTML DOM Element. then
+        2. We have to set initial state of product price and total price.then
+        3. We have to render the initial state value to HTML DOM. then
+        4. We have to update the state value with the user click interaction on **Add to cart** button. then
+        5. **We have to update dom manualy to see the DOM CHANGES.**
+
+        Pretty simple task for now , write??.. Wait.. If we have to do this with 10/20/100 products ?
+
+        OOHH ! we have to do the same thing again and again.
+
+        So, this process is not a easy way and every time after change any value it need to update the DOM manualy,which is really very costly and very hard to maintain in a large scale application.
+
+        That’s why React comes to play.
+
+        **Lets do this again with React:**
+
+        **What we have to do with react? let’s see…**
+
+        We have a simple product card UI component. and we set a initial state of product price and quantity.
+
+        after a user click on **Add to cart Button** we just need to update our click count or Quantity state.
+
+        And React do the rest…
+
+        It automaticaly update the UI with the helps of **ReactDOM.** So, we don’t need to be panic to update the UI. which process is very very easy to maintain and scaling any large or any size application. Because React components state are independent. which means if we have this same product component Hundreds or Thousends.. No matter, each components has its won independent state.
+
+        So, What we learned ?
+
+        We learned that React is come to helps us to write code very easy and effective way and don’t need to be panic to update UI. Because this is React. React always Reactive. Its need just data change and it will do the rest by itself.\*\*</i></blockquote>
+
+    -   #### React Installation & Editor Setup with Vite
+
+         <blockquote>
+         <i>
+        React Recomment to use a framework with react. but this time we will install react with vite
+
+        ```bash
+
+            npm create vite@latest --template react
+
+        ```
+
+         </i>
+         </blockquote>
+
+    -   #### How React works - Virtual DOM
+
+        <blockquote>
+
+        ভার্চুয়াল ডম এর মাধমেই মুলত রিয়াক্ট কাজ করে থাকে।
+
+        রিয়াক্ট তার পুরো ওয়েব এপ্লিকেশনকে একটা কম্পনেন্ট ট্রি আকারে চিন্তা করে, অনেকটা DOM এর মতো।
+
+        যখন ইউজারের কোন ইন্টারেকশনের কারনে কোন একটা কম্পনেন্ট এ কিছু চেঞ্জ করা লাগে,তখনি রিয়াক্ট তার ভার্চুয়াল ডম কন্সেপ্টটাকে কাজে লাগায়।
+
+        যখন ই কোন কম্পনেন্ট এ কিছু চেঞ্জ হয়,তখনি রিয়াক্ট তার যে মেইন কম্পোনেন্ট আছে তার মদ্ধে যেই চেঞ্জটা হলো তার ঠিক আগে কম্পোনেন্ট টা যেই অবস্থায় ছিল,সেটার একটা সেম কপি বানিয়ে ফেলে তার ভার্চুয়াল ডম অব্জেক্ট এ।
+
+        তারপর রিয়াক্ট তার Diffing or Reconciliation এল্গরিদম এর সাহায্যে দুইটাকে পাশাপাশি তুলনা করে বুঝতে পারে যে,কম্পোনেন্ট এর ঠিক কোন জায়গায় বা কোন ইলিমেন্টে পরিবর্তন হয়েছে আর ব্রাউজার এ ঠিক কোন জায়গায় পরিবর্তন দেখাতে হবে।
+
+        তখন ঠিক সেই জায়গায় রিয়াক্ট পুরো ডমটাকে রি রেন্ডার না করে,ঠিক যেই যায়গায় চেঞ্জ হয়েছে,ঠিক সেই জায়গায় ডমটাকে চেঞ্জ করে দেয়।
+
+        এতে করে যেই লাভ টা হচ্ছে যে, নরমাল কোন ওয়েব এপ্লিকেশনে বার বার প্রতিটা ইন্টারেকশনে RenderTree টাকে Repaint করতে যে সময়টা লাগছে তা রিয়াক্ট এ লাগছেনা,কারন রিয়াক্ট তার reconciliation এল্গরিদম এর মাদ্ধমে একেবারে মিনিমাম চেঞ্জ করছে, এতে করে ডম ম্যানিপুলেশন কমে যাচ্ছে তাই আমরা পার্ফমেন্স টা যথেষ্ট ফাস্ট পাচ্ছি। </blockquote>
+
     -   Basics of React Components
     -   Basics of JSX: React's Markup
     -   JavaScript in JSX
@@ -81,6 +155,7 @@ You should know and be comfortable with **all of the following:**
     -   Rendering Lists
     -   Pure Components
     -   How to split larger components into smaller ones
+
 -   **Adding Interactivity**
 
     -   Responding to Events - Event Handlers
