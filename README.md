@@ -131,7 +131,7 @@ You should know and be comfortable with **all of the following:**
 
     -   #### How React works - Virtual DOM
 
-        <blockquote>
+         <blockquote>
 
         ভার্চুয়াল ডম এর মাধমেই মুলত রিয়াক্ট কাজ করে থাকে।
 
@@ -147,14 +147,204 @@ You should know and be comfortable with **all of the following:**
 
         এতে করে যেই লাভ টা হচ্ছে যে, নরমাল কোন ওয়েব এপ্লিকেশনে বার বার প্রতিটা ইন্টারেকশনে RenderTree টাকে Repaint করতে যে সময়টা লাগছে তা রিয়াক্ট এ লাগছেনা,কারন রিয়াক্ট তার reconciliation এল্গরিদম এর মাদ্ধমে একেবারে মিনিমাম চেঞ্জ করছে, এতে করে ডম ম্যানিপুলেশন কমে যাচ্ছে তাই আমরা পার্ফমেন্স টা যথেষ্ট ফাস্ট পাচ্ছি। </blockquote>
 
-    -   Basics of React Components
-    -   Basics of JSX: React's Markup
-    -   JavaScript in JSX
-    -   Passing Props to Components
-    -   Conditional Rendering
-    -   Rendering Lists
-    -   Pure Components
-    -   How to split larger components into smaller ones
+    -   #### Basics of React Components
+
+         <blockquote>
+         React applications are built from isolated pieces of UI called components. A React component is a JavaScript function that you can sprinkle with markup.
+
+        Components can be as small as a button, or as large as an entire page.
+
+        In a React app, every piece of UI is a component.
+
+        React components are regular JavaScript functions ,But...
+
+        1. Their names always begin with a capital letter.
+        2. They return JSX markup.
+
+        **Steps for defining a component**
+
+        `Step 1:` Export the component
+
+        `Step 2:` Define the function
+
+        ` Step 3:` Add markup
+
+        ```jsx
+        export default function MyComponent() {
+            return (
+                <div>
+                    <h1>This is My First Componnet</h1>
+                </div>
+            );
+        }
+        ```
+
+        <i>Return statements can be written all on one line,But if your markup isn’t all on the same line as the return keyword, you must wrap it in a pair of parentheses.Without parentheses, any code on the lines after return will be ignored!</i>
+
+        </blockquote>
+
+    -   #### Importing and Exporting Components
+
+         <blockquote>
+         জাভাস্ক্রিপ্ট এ মূলত দুইভাবে `import` and `export` করা যায় ।
+         
+         1. Default export/import
+         2. Named export/import
+
+        **Default export/import**
+
+        একটি ফাইল থেকে মাত্র একটি default export করা যাবে ।
+
+        ```javascript
+
+        //way 1 of default export
+        export default function MyComponent() {
+            return; // something jsx
+        }
+
+
+        //way 2 of default export
+        const MyComponent = () => {
+            return; // something jsx
+        };
+        export default MyComponent;
+
+        ```
+
+        `default exported component` ইম্পোর্ট করা যায় দুইভাবে ঃ
+
+        ```javascript
+        //Way 1 of Default Import
+        import MyComponent from "./MyComponent";
+
+        //Way 2 of Default Import
+        import SomethingOtherName from "./MyComponent";
+        ```
+
+        খেয়াল করুন `default import` এর ক্ষেত্রে আমরা `Component` কে যেকোন নামে ইম্পোর্ট করতে পারি । তবে `Component` ব্যাবহার করার সময় যেই নামে ইম্পোর্ট করা হয়েছে সেই নামেই ব্যাবহার করতে হবে ।
+
+        **Named export/import**
+
+        একটি ফাইল থেকে একাধিক `named export` করা যায় ।
+
+        ```javascript
+        //named export
+        export function MyComponent() {
+            return; // something jsx
+        }
+        ```
+
+        `named exported component` ইম্পোর্ট করার সময় অবশ্যই যেই নামে এক্সপোর্ট করা হয়েছে সেই নামেই ইম্পোর্ট করতে হবে এবং নামটা অবশ্যই {} এর মাঝখানে লিখতে হবে ।
+
+        ```javascript
+        //named import
+        import { MyComponent } from "./MyComponent";
+        ```
+
+        `named exported component` ইম্পোর্ট করার সময় চাইলে `alias` দিয়েও ইম্পোর্ট করা যায়,সেক্ষেত্র `Component` ব্যাবহার করার সময়ও `Alias` নামেই ব্যাবহার করা লাগবে
+
+        ```javascript
+        //named import
+        import { MyComponent as SomethingOtherName } from "./MyComponent";
+        ```
+
+         </blockquote>
+
+    -   #### JavaScript in JSX
+
+        আমরা JSX এর ভিতরে ডায়নামিক জাভাস্ক্রিপ্ট এর একপ্রেশন লিখতে পারি ।
+
+        JSX এ জাভাস্ক্রিপ্ট একপ্রেশন লিখতে হলে আমাদেরকে তা `{}` এর ভিতরে লিখতে হবে ।
+
+        ```javascript
+        export default function TodoList() {
+            const name = "Gregorio Y. Zara";
+            return <h1>{name}'s To Do List</h1>;
+        }
+        ```
+
+    -   #### Passing Props to Components
+
+        React Components use props to communicate with each other. Props are like Html attributes. but main difference is - we can pass any javascript value as props like array object even function as well.
+
+        **React Props or Data are unidirectional. It means we can only pass data/props from Parents to Child Component**
+
+        We can pass props to a component in two simple steps:
+
+        `Step 1:` Pass props to the child component:
+
+        ```javascript
+        export default function Profile() {
+            return (
+                <Avatar
+                    person={{ name: "Lin Lanying", imageId: "1bX5QH6" }}
+                    size={100}
+                />
+            );
+        }
+        ```
+
+        `Step 2:` Read props inside the child component
+
+        We can read props from child components as arguments of function.
+
+        ```javascript
+        function Avatar(props) {
+            let person = props.person;
+            let size = props.size;
+            // ...
+        }
+        ```
+
+        Usually we don’t need the whole props object itself, so we cab destructure it into individual props.
+
+        ```javascript
+        function Avatar({ person, size }) {
+            // ...
+        }
+        ```
+
+        This syntax is called “destructuring” and is equivalent to reading properties from a function parameter.
+
+        **Specifying a default value for a prop**
+
+        we can give a default value to a props as a fallback right after the props by assigning with `=` operator.
+
+        default value will use only when the props is missing or `undefined`,but if we pass `null` or `0`,the default value will not be used.
+
+        We can forward all props with <Avatar {...props} /> JSX spread syntax, but we shouldn't overuse it!
+
+    -   #### Conditional Rendering
+
+        আমরা অনেকভাবে রিয়াক্টে কন্ডিশনাল রেন্ডারিং করতে পারি ঃ
+
+            1.  If Statement
+            2.  Logical AND -`&&`
+            3.  Logical OR -`||`
+            4.  Ternery Operators - `? :`
+            5.  Nullinsh Colasing Operators - `??`
+
+    -   #### Rendering Lists
+
+        জাভাস্ক্রিপ্ট এ আমাদের অনেক সময় লিস্ট আইটেম শো করানোর প্রয়োজন পরে । যদি আমাদের কোন Array ডাটা স্ট্রাকচার থাকে তখন আমাদেরকে `map` করে সেই ডাটা লিস্ট শো করাতে হয়। এখানেও আমরা Array ডাটা শো করানোর সময় `map` ব্যাবহার করবো।তবে এক্ষেত্রে আমরা লিস্ট আইটেম ম্যাপ করার সময় আইটেম কম্পোনেন্ট এ একটা ইউনিক `key={}` আইডেন্টিফায়ার ব্যাবহার করতে হবে ।
+
+        এই `key={}` আমাদের প্রতিটা কম্পোনেন্ট কে আলাদা আলাদা করে রিপ্রেসেন্ট করে । এতে আমাদের অনেক বাগ থকে মুক্তি মেলে।
+
+        `key={}` ব্যাবহার করার সময় আমাদের কিছু জিনিশ মাথায় রাখতে হবে ঃ
+
+        ১। `key={}` এর ভ্যালু হিসেবে আমাদের কখনওই Array এর index ব্যাবহার করা উচিত না ।
+
+        ২। `key={}` ব্যাবহার করার করার সময় কখনওই আমরা on the fly(ইনস্ট্যান্ট) `key` জেনারেট করে ব্যাবহার করতে পারবোনা। সবচাইতে ভালো হয় যদি আমাদের ডাটাতে কোন ইউনিক আইডেন্টিফায়ার থাকে । তাহলে সহজেই আমরা সেই আইডেন্টিফায়ার কে key হিসেবে ব্যাবহার করতে পারবো ।
+
+    -   #### Pure Components
+
+        আমাদের প্রতিটা কম্পোনেন্টকে `Pure Component` হিসেবে বানানো উচিত। পিউর কম্পোনেন্ট এর কিছু বৈশিষ্ট্য হলো ঃ
+
+        ১। এটা শুধু তার নিজের কাজ করে। তার যতটুকু কাজ সে শুধু ততটুকু কাজ এ করবে । এটা বাহিরের কোন variable কে তার নিজের ভিতরে পরিবর্তন করবে না। ২। সবসময় সেম ইনপুটের সেম আঊটপুট দিবে ।
+
+        You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, “set” state instead of mutating preexisting objects.
+
+    -   #### How to split larger components into smaller ones
 
 -   **Adding Interactivity**
 

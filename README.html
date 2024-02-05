@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>DEVELOPER HANDBOOK</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="developer-handbook">DEVELOPER HANDBOOK</h1>
+<h3 id="react-developer-roadmap-2024">React Developer Roadmap (2024)</h3>
+<p>A thorough React developer roadmap for 2024 that addresses all aspects of React and beyond.</p>
+<details>
+<summary>0. Before you start React</summary>
+<p>You should know and be comfortable with <strong>all of the following:</strong></p>
+<ul>
+<li>
+<p><a href="https://www.w3schools.com/html/default.asp"><strong>Basic HTML</strong></a></p>
+<ul>
+<li>HTML Elements, Attributes, Headings, Paragraphs, Colors &amp; Styles</li>
+<li>HTML Links, Images, Tables, Lists, Block &amp; Inline, Div, Classes, Id</li>
+<li>HTML Forms</li>
+<li>HTML Layout, Responsiveness &amp; Semantic</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.w3schools.com/css/default.asp"><strong>Basic CSS</strong></a></p>
+<ul>
+<li>CSS Basics - Syntax, Selectors, Colors, Backgrounds, Borders, Margin, Padding, Height/Width, Box Model, Outline, Text, Fonts, Links etc.</li>
+<li>CSS More - Lists, Tables, Display, Position, z-index, Overflow, Float, Inline Block, Align, Combinators, Pseudo-classes &amp; elements, Opacity etc.</li>
+<li>CSS Forms &amp; Layouts</li>
+<li>CSS Flexbox</li>
+<li>CSS Grid</li>
+<li>Advanced CSS - CSS Units, Shadows, Gradients, Transitions, Animations, Specificity etc.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=X7XbjwD6fVY&amp;list=PLHiZ4m8vCp9P23SqlHL0QAqiwS_oCofV2"><strong>Basic Tailwind CSS</strong></a></p>
+<ul>
+<li>Tailwind Utilities</li>
+<li>Responsive Variants</li>
+<li>Hover, focus and other states</li>
+<li>Dark Mode variant</li>
+<li>Tailwind Directives</li>
+<li>Tailwind Configurations</li>
+<li>Theme Configurations</li>
+<li><a href="https://www.youtube.com/watch?v=y7DrXkGj7AU">Tailwind cn() utility</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Document Object Model (DOM)</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=mPTkKnL2aNA&amp;list=PLHiZ4m8vCp9OkrURufHpGUUTBjJhO9Ghy">DOM Basics - Basics, Method, Document, Elements, Forms, CSS, Events, Navigation, Nodes and Collections</a></li>
+<li><a href="https://www.youtube.com/watch?v=XY96d0vEdFk&amp;list=PLHiZ4m8vCp9MJDxMOzhYVuTrO1b5n-Tq_">DOM Advanced</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=rePN-VFo1Eo&amp;list=PLHiZ4m8vCp9OkrURufHpGUUTBjJhO9Ghy"><strong>Basic JavaScript</strong></a></p>
+<ul>
+<li>JS Basics - Statements, Expressions, Syntax, Variables, Operators, Data Types, Functions, Objects, Arrays, Events, Array and String Methods, Object Methods, Date, Conditionals, Error Handling, JavaScript OOP - classes and inheritance and Debugging</li>
+<li>JS Web APIs - Forms, History, Geolocation, Storage, Worker and Fetch API</li>
+<li>JS JSON</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=KuhLGuNxF8U&amp;list=PLHiZ4m8vCp9Nflbo9a0pZuLscG_Xc7DKq"><strong>JavaScript Advanced</strong></a></p>
+<ul>
+<li>Solid JS Concepts - Scope, Hosting, Execution Context, Closures, Prototype, Recursion, Primitive vs Reference Data Types, Currying, Intersection Observer, Memoization, Event Propagation, Debounce etc.</li>
+<li><a href="https://www.youtube.com/watch?v=IUBd76UQb34">Asynchronous JavaScript</a> - Callbacks, Promises and async-await</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=PWXkYBmlbB4&amp;list=PLHiZ4m8vCp9MFjMRp9EEHWKArbi0wdgXG"><strong>Modern JavaScript</strong></a></p>
+<ul>
+<li>Different ES6+ JS Syntaxes and concepts eg. Arrow function, Truthy/Falsy values, Ternary Operator, Different Array methods like find, filter, map, reduce, slice, splice, push, pop, concat, different looping strategies, Spread &amp; Rest Operator, Array and Object Destructuring, Imports/Exports syntax, Template Literals, Sorting etc.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=PWXkYBmlbB4&amp;list=PLHiZ4m8vCp9MFjMRp9EEHWKArbi0wdgXG"><strong>Git/GitHub</strong></a></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=oe21Nlq8GS4">Basics of Git</a></li>
+<li><a href="https://learnwithsumit.com/rnext/courses/rnext/git-github-refresher">Important Git Commands</a></li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>1. React Fundamentals</summary>
+<p>You should know and be comfortable with <strong>all of the following:</strong></p>
+<ul>
+<li>
+<h2 id="getting-started-with-react"><strong>Getting Started with React</strong></h2>
+<ul>
+<li>
+<h4 id="introduction-to-react---why-react---comparison-with-vanilla-js">Introduction to React - Why React - Comparison with Vanilla JS</h4>
+<blockquote><i>React is a javascript library which is created for building web and native user interfaces. In 2011 a facebook engineer named “JORDAN WALKE” created React js . he was inspired by a php library called XHP-JS. React was first used in facebook timeline in 2011 and then 2012 used in Instagram. Though it is very affective,that’s why facebook makes it a opensource for all.</i></blockquote>
+ <blockquote><i>In vanila javascript  after a user interaction UI have to change manualy,In a large project which is a very costly and difficult to maintain. **Facebook** also face this problem as well.thats why they think seriously and create React js. React helps us to get rid of this problem. **In a react application when user interact,and after user interaction we just need to change the data or state,react automaticaly change the UI. we don’t need to change the UI manualy. this is the main beauty of React. and also react’s each component have independent State. which means , Every component and its states are separate.**
+Lets think an example:
+<p>This is a simple product card. And we have a task that “ when a user click on Add to cart button ,the total price will multiply the price according to the click count. Which means If a user click Add to card button once total price should be 6000 and if click twice,the total price will be 12000 and so on..&quot;</p>
+<p>pretty simple task write?</p>
+<p><strong>Lets do it with vanila javascript firtst:</strong></p>
+<ol>
+<li>We have to select all the HTML DOM Element. then</li>
+<li>We have to set initial state of product price and total price.then</li>
+<li>We have to render the initial state value to HTML DOM. then</li>
+<li>We have to update the state value with the user click interaction on <strong>Add to cart</strong> button. then</li>
+<li><strong>We have to update dom manualy to see the DOM CHANGES.</strong></li>
+</ol>
+<p>Pretty simple task for now , write??.. Wait.. If we have to do this with 10/20/100 products ?</p>
+<p>OOHH ! we have to do the same thing again and again.</p>
+<p>So, this process is not a easy way and every time after change any value it need to update the DOM manualy,which is really very costly and very hard to maintain in a large scale application.</p>
+<p>That’s why React comes to play.</p>
+<p><strong>Lets do this again with React:</strong></p>
+<p><strong>What we have to do with react? let’s see…</strong></p>
+<p>We have a simple product card UI component. and we set a initial state of product price and quantity.</p>
+<p>after a user click on <strong>Add to cart Button</strong> we just need to update our click count or Quantity state.</p>
+<p>And React do the rest…</p>
+<p>It automaticaly update the UI with the helps of <strong>ReactDOM.</strong> So, we don’t need to be panic to update the UI. which process is very very easy to maintain and scaling any large or any size application. Because React components state are independent. which means if we have this same product component Hundreds or Thousends.. No matter, each components has its won independent state.</p>
+<p>So, What we learned ?</p>
+<p>We learned that React is come to helps us to write code very easy and effective way and don’t need to be panic to update UI. Because this is React. React always Reactive. Its need just data change and it will do the rest by itself.**</i></blockquote></p>
+</li>
+<li>
+<h4 id="react-installation--editor-setup-with-vite">React Installation &amp; Editor Setup with Vite</h4>
+ <blockquote>
+ <i>
+React Recomment to use a framework with react. but this time we will install react with vite
+<pre><code class="language-bash">
+    npm create vite@latest --template react
+
+</code></pre>
+ </i>
+ </blockquote>
+</li>
+<li>
+<h4 id="how-react-works---virtual-dom">How React works - Virtual DOM</h4>
+<blockquote>
+<p>ভার্চুয়াল ডম এর মাধমেই মুলত রিয়াক্ট কাজ করে থাকে।</p>
+<p>রিয়াক্ট তার পুরো ওয়েব এপ্লিকেশনকে একটা কম্পনেন্ট ট্রি আকারে চিন্তা করে, অনেকটা DOM এর মতো।</p>
+<p>যখন ইউজারের কোন ইন্টারেকশনের কারনে কোন একটা কম্পনেন্ট এ কিছু চেঞ্জ করা লাগে,তখনি রিয়াক্ট তার ভার্চুয়াল ডম কন্সেপ্টটাকে কাজে লাগায়।</p>
+<p>যখন ই কোন কম্পনেন্ট এ কিছু চেঞ্জ হয়,তখনি রিয়াক্ট তার যে মেইন কম্পোনেন্ট আছে তার মদ্ধে যেই চেঞ্জটা হলো তার ঠিক আগে কম্পোনেন্ট টা যেই অবস্থায় ছিল,সেটার একটা সেম কপি বানিয়ে ফেলে তার ভার্চুয়াল ডম অব্জেক্ট এ।</p>
+<p>তারপর রিয়াক্ট তার Diffing or Reconciliation এল্গরিদম এর সাহায্যে দুইটাকে পাশাপাশি তুলনা করে বুঝতে পারে যে,কম্পোনেন্ট এর ঠিক কোন জায়গায় বা কোন ইলিমেন্টে পরিবর্তন হয়েছে আর ব্রাউজার এ ঠিক কোন জায়গায় পরিবর্তন দেখাতে হবে।</p>
+<p>তখন ঠিক সেই জায়গায় রিয়াক্ট পুরো ডমটাকে রি রেন্ডার না করে,ঠিক যেই যায়গায় চেঞ্জ হয়েছে,ঠিক সেই জায়গায় ডমটাকে চেঞ্জ করে দেয়।</p>
+<p>এতে করে যেই লাভ টা হচ্ছে যে, নরমাল কোন ওয়েব এপ্লিকেশনে বার বার প্রতিটা ইন্টারেকশনে RenderTree টাকে Repaint করতে যে সময়টা লাগছে তা রিয়াক্ট এ লাগছেনা,কারন রিয়াক্ট তার reconciliation এল্গরিদম এর মাদ্ধমে একেবারে মিনিমাম চেঞ্জ করছে, এতে করে ডম ম্যানিপুলেশন কমে যাচ্ছে তাই আমরা পার্ফমেন্স টা যথেষ্ট ফাস্ট পাচ্ছি। </blockquote></p>
+</li>
+<li>
+<p>Basics of React Components</p>
+</li>
+<li>
+<p>Basics of JSX: React's Markup</p>
+</li>
+<li>
+<p>JavaScript in JSX</p>
+</li>
+<li>
+<p>Passing Props to Components</p>
+</li>
+<li>
+<p>Conditional Rendering</p>
+</li>
+<li>
+<p>Rendering Lists</p>
+</li>
+<li>
+<p>Pure Components</p>
+</li>
+<li>
+<p>How to split larger components into smaller ones</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Adding Interactivity</strong></p>
+<ul>
+<li>Responding to Events - Event Handlers</li>
+<li>Understanding States - React Component's Memory - useState</li>
+<li>How State works in React</li>
+<li>How Rendering works in React</li>
+<li>Updating complex states immutably in React</li>
+</ul>
+</li>
+<li>
+<p><strong>React State Management Deep Dive</strong></p>
+<ul>
+<li>Declarative vs Imperative UI</li>
+<li>Thinking UI Declaratively</li>
+<li>Finding &amp; Structuring React States</li>
+<li>Connecting Event Handlers to React</li>
+<li>Sharing State between components</li>
+<li>Lifting State up</li>
+<li>Extracting State Logic into Reducers</li>
+<li>useReducer Hook</li>
+<li>How to use Immer with React for concised immutable State Update</li>
+<li>Passing Data Deeply inside React Components</li>
+<li>Avoiding Prop Drilling - Context API &amp; useContext Hook</li>
+<li>Combine context and reducer to write scalable code</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>2. Advanced React</summary>
+<ul>
+<li>Referencing values with Refs - useRef hook</li>
+<li>Manipulating the DOM with Refs</li>
+<li>Synchronizing with Effects - useEffect hook</li>
+<li>Separating events from Effects</li>
+<li>Removing Effect Dependencies</li>
+<li>Performance optimization with useCallback and useMemo hook</li>
+<li>Reusing logic with Custom Hooks</li>
+<li>Calling APIs from Back-end with React</li>
+</ul>
+</details>
+<details>
+<summary>3. Advanced State Management</summary>
+<h5 id="using-redux--toolkit"><a href="https://learnwithsumit.com/think-in-a-redux-way">Using Redux / Toolkit</a></h5>
+<ul>
+<li>
+<h5 id="redux">Redux</h5>
+</li>
+<li>
+<h5 id="redux-thunk">Redux Thunk</h5>
+<ul>
+<li>
+<h6 id="what-is-redux-thunk">What is Redux Thunk</h6>
+<p><code>Redux Thunk</code> হলো <code>Redux</code> এর একটি <code>middleware</code> যা আমাদের এপ্লিকেশনের asyncronus টাস্ক গুলো ম্যানেজ করতে হেল্প করে । <code>React</code> এপ্লিকেশনের asyncronus টাস্ক গুলো ম্যানেজ করার জন্য <code>Redux Thunk</code> ব্যাবহার করা হয় ।</p>
+</li>
+<li>
+<h6 id="using-steps-of-redux-thunk">Using Steps of Redux Thunk</h6>
+<p>নিচের কিছু স্টেপ ফলো করে আমরা <code>Redux Thunk</code> ব্যাবহার করতে পারি:</p>
+<ul>
+<li><strong>Step 1 : Install Redux Thunk</strong>:</li>
+</ul>
+<pre><code class="language-bash"> npm i redux-thunk
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>4. Styling Solutions</summary>
+<ul>
+<li><a href="https://tailwindcss.com/"><strong>Tailwind</strong></a></li>
+<li><a href="https://www.makeuseof.com/react-components-css-modules-style/"><strong>CSS Modules</strong></a></li>
+<li><a href="https://styled-components.com/"><strong>Styled Components</strong></a></li>
+<li>React UI Component Library - <a href="https://ui.shadcn.com/">Shadcn</a></li>
+<li><a href="https://youtu.be/mVXNUMBtGEA">React UI Component Library - Keep React</a></li>
+<li><a href="https://mui.com/"><strong>Material UI</strong></a></li>
+<li><a href="https://chakra-ui.com/"><strong>Chakra UI</strong></a></li>
+<li><a href="https://ant.design/docs/react/introduce"><strong>Ant Design</strong></a></li>
+</ul>
+</details>
+<details>
+<summary>5. React Ecosystem & Use Cases</summary>
+<ul>
+<li>
+<p><a href="https://youtu.be/34tjWL9wi4g">React Router DOM</a></p>
+</li>
+<li>
+<p>API Request with Axios in React</p>
+</li>
+<li>
+<p>React Suspense &amp; Error Boundaries</p>
+</li>
+<li>
+<p>React Lazy Load</p>
+</li>
+<li>
+<p>React Infinite Scroll</p>
+</li>
+<li>
+<p>Uncommon React Hooks - useDebugValue, useDeferredValue, useId, useImperativeHandle, useInsertionEffect, useLayoutEffect and useTransition</p>
+</li>
+<li>
+<p><strong>React Authentication</strong></p>
+<ul>
+<li>How to handle user sign in (email, password, JWT)</li>
+<li>How to handle access tokens and token refreshes</li>
+<li>Social sign in (Google, Facebook, GitHub, etc.)</li>
+<li><a href="https://supabase.com/">Using Supabase</a></li>
+<li><a href="https://firebase.google.com/docs/auth">Using Firebase</a></li>
+<li><a href="https://clerk.com/">Using Clerk</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Form Handling in React</strong></p>
+<ul>
+<li>How to validate user input in forms (emails, passwords, etc.)</li>
+<li>How to send form data to server</li>
+<li>How to handle file uploads</li>
+<li><a href="https://react-hook-form.com/">Using React Hook Form</a></li>
+<li><a href="https://formik.org/docs/overview">Using Formik</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_accessibility"><strong>Accessibility</strong></a></p>
+<ul>
+<li>Understanding why accessibility is important</li>
+<li><a href="https://www.semrush.com/blog/semantic-html5-guide/">Using semantic HTML</a></li>
+<li>How to implement keyboard navigation</li>
+<li>How to add aria labels</li>
+<li><a href="https://react-spectrum.adobe.com/react-aria/">Using React Aria</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Testing</strong></p>
+<ul>
+<li><a href="https://www.freecodecamp.org/news/how-to-write-unit-tests-in-react/">How to implement unit tests</a>
+<ul>
+<li><a href="https://testing-library.com/docs/react-testing-library/intro/">Using React Testing Library</a></li>
+<li><a href="https://jestjs.io/">Using Jest</a></li>
+</ul>
+</li>
+<li><a href="https://youtu.be/6BkcHAEWeTU">How to implement e2e integration tests</a>
+<ul>
+<li><a href="https://www.cypress.io/">Using Cypress</a></li>
+<li><a href="https://playwright.dev/">Using Playwright</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>6. React Frameworks</summary>
+<p>You should have worked with <strong>one of the following:</strong></p>
+<ul>
+<li><a href="https://vitejs.dev/"><strong>Vite</strong></a>
+<ul>
+<li>How to run a simple React application</li>
+</ul>
+</li>
+<li><a href="https://nextjs.org/"><strong>Next.js</strong></a>
+<ul>
+<li><a href="https://nextjs.org/docs/app/building-your-application/routing">Understanding file-based routing</a></li>
+<li><a href="https://next-auth.js.org/">Understanding Next Auth</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/rendering/server-components">Understanding server components</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations">Understanding server actions</a></li>
+</ul>
+</li>
+<li><a href="https://remix.run/"><strong>Remix</strong></a></li>
+</ul>
+</details>
+<details>
+<summary>7. Beyond React</summary>
+<ul>
+<li><strong>Team player</strong>
+<ul>
+<li>How to work within a team</li>
+<li>How to perform code reviews</li>
+<li>How to give and receive feedback</li>
+</ul>
+</li>
+<li><strong>Efficiency</strong>
+<ul>
+<li>How to prioritise tasks</li>
+<li>How to handle tech debt</li>
+<li>How to meet deadlines and goals</li>
+</ul>
+</li>
+<li><strong>Continuous Learning</strong>
+<ul>
+<li>How to continuously learn and grow</li>
+<li>How to stay up to date with your skills</li>
+</ul>
+</li>
+<li><strong>Networking &amp; Communication</strong> - Going to meetups or events - Contributing to open source projects - Networking within the company you work in</li>
+</ul>
+</details>
+<h3 id="how-to-pass-data-to-deeply-nested-components-in-react-">How to pass data to deeply nested components in React ?</h3>
+<ul>
+<li>
+<p>Props Drilling</p>
+</li>
+<li>
+<p>Render Props</p>
+</li>
+<li>
+<p>HOC Pattern</p>
+</li>
+<li>
+<p>Context API</p>
+</li>
+<li>
+<p>Redux Store Provider</p>
+</li>
+<li>
+<h4 id="props-drilling">Props Drilling</h4>
+<ul>
+<li>এক কম্পোনেন্ট থেকে আরেক কম্পোনেন্ট এ <code>Props</code> আকারে ডাটা পাস করে আমরা কাজ করতে পারি। এই <code>Props</code> পাস করে করে নেস্টেট কম্পোনেন্ট গুলোতে ডাটা পাস করার টেকনিক কে বলা হয় <code> Propos Drilling Technique</code> এই <code>Props Drilling</code> হলো <code>unidirectional</code> অর্থাৎ একমুখী ডাটা পাস করা যায়। রিয়াক্টে সবসময় <code>Parent Component</code> থেকে <code>Child Component</code> এ ডাটা পাস করা যায় ।</li>
+</ul>
+<p>যদি আমাদের কখনো <code>Child Component</code> থেকে <code>Parent Component</code> এ ডাটা পাস করার প্রয়োজন পরে তাহলে আমরা রিয়াক্টে ডাটা পাস করার অন্য আরেকটি টেকনিক <code>Render Props Pattern (RP Pattern)</code> ব্যাবহার করতে পারি ।</p>
+</li>
+<li>
+<h4 id="1-render-props">1. Render Props</h4>
+<ul>
+<li>
+<p><code>Render Props</code> হলো রিয়াক্ট এ <code>Child Component</code> থেকে <code>Parent Component</code> ডাটা পাস করার একটা টেকনিক ।</p>
+<p>এতে আমরা <code>Parent Component</code> এ কোন <code>function</code> লিখে তা <code>Props Drilling</code> এর মাধ্যমে <code>Parent Component</code> এ <code>function</code> রেফারেন্স টা পাস করে তার <code>arguments</code> আকারে <code>Child Component</code> থেকে ডাটা <code>Parent Component</code> এ পাস করতে পারি ।</p>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="2-hoc-pattern">2. HOC Pattern</h4>
+<ul>
+<li><code> HOC Pattern (Higher Order Components Pattern)</code></li>
+</ul>
+</li>
+<li>
+<h4 id="3-context-api">3. Context API</h4>
+<ul>
+<li>জাভাস্ক্রিপ্ট এর <code>Context Api</code> ব্যাবহার করে <code>React</code> একটা হুক বানিয়েছে <code>useContext</code> নামে। এই হুক ব্যাবহার করে আমারা যেকোনো কম্পোনেন্ট থেকে যেকোনো কম্পোনেন্টে ডাটা পাস এবং রিসিভ করতে পারি । সেক্ষেত্রে যত ডিপলী নেস্টেট কম্পোনেন্ট থাকুক না কেন আমরা নিশ্চিন্তে এক কম্পোনেন্ট থেকে আরেক কম্পোনেন্ট এ ডাটা পাস করতে পারবো ।</li>
+</ul>
+</li>
+<li>
+<h4 id="4-redux-store-provider">4. Redux Store Provider</h4>
+<ul>
+<li>Redux State management Library ব্যাবহার করে আমরা ডাটা যেকোনো কম্পোনেন্ট এ পাস করতে পারি ।</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-to-manage-complex-states-in-react">How to Manage Complex States in React</h3>
+<ul>
+<li>useReducer Hook</li>
+<li>useReducer with Context</li>
+<li>Redux Core</li>
+<li>Redux Toolkit</li>
+</ul>
+<p>রিয়াক্ট এর কমপ্লেক্স স্টেট গুলো ম্যানেজ করার জন্য বেশ কিছু টেকনিক আছে , তা হলো ঃ</p>
+<h4 id="1-usereducer-hook">1. useReducer Hook</h4>
+<ul>
+<li><code>useReducer</code> হলো রিয়ক্ট এর একটি হুক যা জাভাস্ক্রিপ্ট এর <code>Array.reducer()</code> মেথড টা ইউজ করে বানানো হয়েছে । এতে করে আমরা <code>React</code> এর কমপ্লেক্স স্টেট গুলো খুব সহজে ম্যানেজ করতে পারি । নিচে <code>useReducer</code> হুক ব্যাবহার করার স্টেপ বাই স্টেপ ইন্সট্রাকশন দেয়া হলো ঃ</li>
+</ul>
+<p>ধরা যাক আমরা একটা <code>Counter</code> বানাচ্ছি ।</p>
+<h2 id="-step-1-"><code> #Step 1 :</code></h2>
+<p>প্রথমে আমাদের একটা <code>reducer function</code> বানানো লাগবে যেকোনো নামে,তবে বুঝার সুবিধার জন্য <code>Counter</code> নামেই ফাংশনটা বানানো উচিত। আমারাদের কোড যেন সুন্দর থাকে, তাই আমরা ফাংশন টা একটা আলাদা ফাইলে বানাবো এবং সেখানে থেকে <code>function</code> টাকে <code>export</code> করে দিবো যাতে অন্য যেকোনো জায়গায় ফাংশনটা ব্যাবহার করতে পারি।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//CounterReducer.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">counterReducer</span> = (<span class="hljs-params"></span>) =&gt; {};
+</code></pre>
+<p>এখানে <code>counterReducer function</code> টি <code>parameter</code> হিসেবে দুইটি জিনিস নেয়,</p>
+<ol>
+<li>state : <code>state</code> এ আমরা আমাদের স্টেট এর ভ্যালু পাই ।</li>
+<li>action: <code>action</code> এ আমরা একটা অবজেক্ট পাই । এই অবজেক্ট এর <code>property</code> হিসেবে আমরা <code>type</code> আর <code>payload</code> পাই।</li>
+</ol>
+<pre><code class="language-javascript"><span class="hljs-comment">//CounterReducer.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">counterReducer</span> = (<span class="hljs-params">state, action</span>) =&gt; {};
+</code></pre>
+<p><code>counterReducer function</code> টি বিভিন্ন লজিকের বিভিন্ন <code>action</code> এর বিপরীতে <code>state</code> এর ভ্যালু আপডেট করবে । এক্ষেত্রে আমরা <code>switch case</code> ব্যাবহার করবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//CounterReducer.js</span>
+<span class="hljs-keyword">const</span> initialValue = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">counterReducer</span> = (<span class="hljs-params">state = initialValue, action</span>) =&gt; {
+    <span class="hljs-keyword">switch</span> (action.<span class="hljs-property">type</span>) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;INCRIMENT&quot;</span>: {
+            <span class="hljs-keyword">return</span> state + <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;DECRIMENT&quot;</span>: {
+            <span class="hljs-keyword">return</span> state - <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-attr">default</span>: {
+            <span class="hljs-keyword">return</span> state;
+        }
+    }
+};
+</code></pre>
+<p>উপরে <code>action</code> এর যেই <code>case</code> গুলো ব্যাবহার করা হয়েছে তা আমরা কম্পোনেন্ট থেকে <code>dispatch</code> করবো ।</p>
+<h2 id="-step-2-"><code> #Step 2 :</code></h2>
+<p>এই স্টেপে আমরা <code>component</code> এ <code>reducer</code> এর স্টেট এর ভ্যালু ব্যাবহার করবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//Counter.jsx</span>
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Counter</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Count : 0<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Incriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Decriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+ }
+</code></pre>
+<p>উপরের <code>Counter component</code> এ আমরা <code>react</code> এর <code>useReducer</code> হুক ব্যাবহার করবো । <code>useReducer</code> হুক দুইটা টুপল <code>tuple</code> রিটার্ন করে, একটি হলো <code>state</code> এবং অপরটি হলো <code>dispatch</code> এবং হুকটি <code>parameter</code> এ দুইটি জিনিস রিসিভ করে , একটি হলো <code>reducerFunction</code> এবং অপরটি হলো <code>initialValue</code>.</p>
+<p><code>initialValue</code> যেকোনো টাইপের হতে পারে। যেহেতু আমরা <code>counter</code> বানাচ্ছি ,তাই আমরা <code>initialValue</code> নাম্বার দিচ্ছি ,এবং সেটা <code>state</code> এর ডিফল্ট ভ্যালু হিসেবে সেট করে দিচ্ছি ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//Counter.jsx</span>
+<span class="hljs-keyword">import</span> {useReducer} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>
+<span class="hljs-keyword">import</span> {counterReducer} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./reducer/CounterReducer.js&quot;</span>
+
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Counter</span>(<span class="hljs-params"></span>){
+
+ <span class="hljs-keyword">const</span> [count,dispatch]= <span class="hljs-title function_">useReducer</span>(counterReducer,<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Count : 0<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Incriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Decriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+ }
+</code></pre>
+<p><code>count</code> এর ভিতর আমরা <code>Counter</code> এর স্টেট টা পাবো এবং তা <code>Count</code> এর ভ্যালু হিসেবে সেট করে দিবো ।</p>
+<p><code>button</code> গুলোর <code>onClick</code> হান্ডেলারে আমরা <code>action dispatch</code> করবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//Counter.jsx</span>
+<span class="hljs-keyword">import</span> {useReducer} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>
+<span class="hljs-keyword">import</span> {counterReducer} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./reducer/CounterReducer.js&quot;</span>
+
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Counter</span>(<span class="hljs-params"></span>){
+
+ <span class="hljs-keyword">const</span> [count,dispatch]= <span class="hljs-title function_">useReducer</span>(counterReducer,<span class="hljs-number">0</span>)
+    <span class="hljs-comment">//action handler</span>
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleIncrement</span>(<span class="hljs-params"></span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">dispatch</span>({<span class="hljs-attr">type</span>:<span class="hljs-string">&quot;INCRIMENT&quot;</span>})
+    }
+
+     <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleDecrement</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">dispatch</span>({<span class="hljs-attr">type</span>:<span class="hljs-string">&quot;DECRIMENT&quot;</span>})
+    }
+
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Count : {count} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleIncriment}</span>&gt;</span>Incriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleDecriment}</span>&gt;</span>Decriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+ }
+</code></pre>
+<h4 id="2-context-with-reducer">2. Context With Reducer</h4>
+<h2 id="step--1"><code>#Step : 1</code></h2>
+<p>প্রথমে আমাদের একটা <code>context</code> বানাতে হবে । সেজন্য একটা ফাইল নিব <code>CouterContext.js</code> নামে । এবং রিয়াক্টের <code>createContext</code> ব্যাবহার করে একটা <code>context</code> বানাতে হবে ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//counterContext.js</span>
+<span class="hljs-keyword">import</span> { createContext } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> counterContext = <span class="hljs-title function_">createContext</span>(<span class="hljs-literal">null</span>);
+</code></pre>
+<h2 id="step--2"><code>#Step : 2</code></h2>
+<p><code>Context</code> এর <code>Provider</code> এর ভ্যালুতে আমারা ডাটা পাস করবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//counterContext.js</span>
+<span class="hljs-keyword">import</span> { createContext,useReducer } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> counterContext = <span class="hljs-title function_">createContext</span>(<span class="hljs-literal">null</span>);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">counterContextProvider</span>(<span class="hljs-params">{children}</span>){
+
+ <span class="hljs-keyword">const</span> [count,dispatch]= <span class="hljs-title function_">useReducer</span>(counterReducer,<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">return</span>(
+     <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">counterContext.Provider</span> <span class="hljs-attr">value</span> = <span class="hljs-string">{{count,dispatch}}</span>&gt;</span>
+            {children}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">counterContext.Provider</span>&gt;</span>
+     <span class="hljs-tag">&lt;/&gt;</span></span>
+    )
+}
+</code></pre>
+<h2 id="step--3"><code>#Step : 3</code></h2>
+<p>আমরা যেই <code>component</code> থেকে তার সকল নেস্টেট <code>ChildComponent</code> এ ডাটা এক্সেস করতে চাইবো সেই <code>component</code> কে আমরা <code>contextProvider</code> দিয়ে wrap করে দিবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//Main.jsx</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">CounterContextProvider</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../context/counterContext&quot;</span>;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">CounterContextProvider</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">CounterContextProvider</span>&gt;</span></span>;
+</code></pre>
+<h2 id="step--4"><code>#Step : 4</code></h2>
+<p>এবার আমারা যেই <code>component </code> এ ভ্যালু এক্সেস করতে চাইবো সেখান থেকে শুধু <code>context</code> এর মাধ্যমে ডাটা রিসিভ করে বিভিন্ন <code>action dispatch</code> করতে পারবো ।</p>
+<pre><code class="language-javascript"><span class="hljs-comment">//Counter.jsx</span>
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Counter</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">const</span> {count,dispatch} = <span class="hljs-title function_">useContext</span>(couterContext)
+    <span class="hljs-comment">//action handler</span>
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleIncrement</span>(<span class="hljs-params"></span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">dispatch</span>({<span class="hljs-attr">type</span>:<span class="hljs-string">&quot;INCRIMENT&quot;</span>})
+    }
+
+     <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleDecrement</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">dispatch</span>({<span class="hljs-attr">type</span>:<span class="hljs-string">&quot;DECRIMENT&quot;</span>})
+    }
+
+    <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Count : {count} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleIncriment}</span>&gt;</span>Incriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleDecriment}</span>&gt;</span>Decriment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/&gt;</span></span>
+ }
+</code></pre>
+<h4 id="3-redux-core">3. Redux Core</h4>
+<h4 id="4-redux-toolkit">4. Redux Toolkit</h4>
+<p>নিচের স্টেপ গুলোর মাধ্যমে আমরা রিডাক্স টুলকিট ব্যাবহার করতে পারি ।</p>
+<p><code>- Step : 1 :</code></p>
+<p><strong>Create A Slice</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createSlice } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">const</span> someThingSlice = <span class="hljs-title function_">createSlice</span>();
+</code></pre>
+<p><strong>Export Reducer from Slice</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createSlice } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">const</span> someThingSlice = <span class="hljs-title function_">createSlice</span>();
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> someThingSlice.<span class="hljs-property">reducer</span>;
+</code></pre>
+<p><strong>Add Slice Name,initialState,reducers,extrareducers</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createSlice } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">const</span> someThingSlice = <span class="hljs-title function_">createSlice</span>({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;someThingSlice&quot;</span>,
+    <span class="hljs-attr">initalState</span>: {
+        <span class="hljs-attr">data</span>: [],
+    },
+    <span class="hljs-attr">reducers</span>: {},
+    <span class="hljs-attr">extrareducers</span>: <span class="hljs-function">(<span class="hljs-params">builder</span>) =&gt;</span> {},
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> someThingSlice.<span class="hljs-property">reducer</span>;
+</code></pre>
+<p><strong>Add reducer Actions</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createSlice } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">const</span> someThingSlice = <span class="hljs-title function_">createSlice</span>({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;someThingSlice&quot;</span>,
+    <span class="hljs-attr">initalState</span>: {
+        <span class="hljs-attr">data</span>: [],
+    },
+    <span class="hljs-attr">reducers</span>: {},
+    <span class="hljs-attr">extrareducers</span>: <span class="hljs-function">(<span class="hljs-params">builder</span>) =&gt;</span> {},
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> someThingSlice.<span class="hljs-property">reducer</span>;
+</code></pre>
+<p><strong>Handle Asyncronus call in ApiSlice file</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createAsyncThunk } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> createNewPost = <span class="hljs-title function_">createAsyncThunk</span>(
+    <span class="hljs-string">&quot;post/createNewPost&quot;</span>,
+    <span class="hljs-keyword">async</span> (data) =&gt; {
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> axios.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;http://localhost:7070/posts&quot;</span>, {
+                ...data,
+                <span class="hljs-attr">id</span>: crypto.<span class="hljs-title function_">randomUUID</span>(),
+            });
+            <span class="hljs-keyword">return</span> response.<span class="hljs-property">data</span>;
+        } <span class="hljs-keyword">catch</span> (err) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(err);
+        }
+    }
+);
+</code></pre>
+<p><strong>Add Extra Reducers when use Api for CRUD</strong></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { createSlice } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">import</span> { createNewPost } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./postApiSlice&quot;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> postSlice = <span class="hljs-title function_">createSlice</span>({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;post&quot;</span>,
+    <span class="hljs-attr">initialState</span>: {
+        <span class="hljs-attr">loading</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">message</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">postData</span>: [],
+    },
+    <span class="hljs-attr">reducers</span>: {},
+    <span class="hljs-attr">extraReducers</span>: <span class="hljs-function">(<span class="hljs-params">builder</span>) =&gt;</span> {
+        builder
+            .<span class="hljs-title function_">addCase</span>(createNewPost.<span class="hljs-property">pending</span>, <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+                state.<span class="hljs-property">loading</span> = <span class="hljs-literal">true</span>;
+            })
+            .<span class="hljs-title function_">addCase</span>(createNewPost.<span class="hljs-property">fulfilled</span>, <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+                state.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;
+                state.<span class="hljs-property">postData</span> = [...state.<span class="hljs-property">postData</span>, action.<span class="hljs-property">payload</span>];
+            })
+            .<span class="hljs-title function_">addCase</span>(createNewPost.<span class="hljs-property">rejected</span>, <span class="hljs-function">(<span class="hljs-params">state, action</span>) =&gt;</span> {
+                state.<span class="hljs-property">loading</span> = <span class="hljs-literal">false</span>;
+                state.<span class="hljs-property">error</span> = action.<span class="hljs-property">error</span>.<span class="hljs-property">message</span>;
+            });
+    },
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> postSlice.<span class="hljs-property">reducer</span>;
+</code></pre>
+<ul>
+<li><code>Step : 2 :</code></li>
+</ul>
+<p><strong>Create Store and Configure Store</strong></p>
+<p><code> create a file named 'store.js'</code></p>
+<pre><code class="language-javascript"><span class="hljs-comment">//store.js</span>
+<span class="hljs-keyword">import</span> { configureStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@reduxjs/toolkit&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">SomethingSliceReducer</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../SomethingSlice&quot;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> store = <span class="hljs-title function_">configureStore</span>({
+    <span class="hljs-attr">reducer</span>: {
+        <span class="hljs-attr">someThing</span>: <span class="hljs-title class_">SomethingSliceReducer</span>,
+    },
+});
+</code></pre>
+<ul>
+<li><code>Step: 3 : </code></li>
+</ul>
+<p><strong>Pass store via Provider to App Component</strong></p>
+<pre><code class="language-javascript"><span class="hljs-comment">//main.jsx</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Provider</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react-redux&quot;</span>;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>;
+</code></pre>
+<h1 id="useeffect-hook-in-react">useEffect Hook in React</h1>
+<p><strong>Syncronising With Effect</strong></p>
+<ul>
+<li>
+<h3 id="কেন-useeffect-প্রয়োজন-">কেন useEffect প্রয়োজন ?</h3>
+<ul>
+<li>রিয়াক্টে আমাদের এমন কিছু টাস্ক সম্পন্ন করতে হয়,যা কোন ইউজারের ইন্টারেকশনের উপর ডিপেন্ড করেনা বরং সেগুলো আমাদের অটোমেটিক করতে হয় । এইসব কাজ গুলো হলো <code>side effect</code> । এগুলো কোন <code>event handler</code> এর উপর ডিপেন্ট করে কল হয়না ,বরং <code>Component</code> লোড হয়ে যাওয়ার পর আমাদের অটোমেটিক করে দিতে হয়। এই সমস্ত কাজ সম্পন্ন করার জন্য প্রয়োজন হয় <code>useEffect</code> এর ।</li>
+</ul>
+</li>
+<li>
+<h3 id="useeffect-কিভাবে-লিখতে-হয়-">useEffect কিভাবে লিখতে হয় ?</h3>
+<ul>
+<li>
+<p>তিনটা স্টেপ এ <code>useEffect</code> লিখতে হয় ।</p>
+<ul>
+<li><strong>Declare an effect</strong></li>
+<li><strong>Specify the dependencies</strong></li>
+<li><strong>Add cleanup if needed</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Declare an effect</strong></p>
+<ul>
+<li>To declare an Effect in your component, import the useEffect Hook from React:</li>
+</ul>
+<pre><code>import { useEffect } from 'react';
+</code></pre>
+<p>Then, call it at the top level of your component and put some code inside your Effect:</p>
+<pre><code class="language-javascript"><span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">//code will go here</span>
+});
+</code></pre>
+</li>
+<li>
+<p><strong>Specify the Effect dependencies</strong></p>
+<p>ডিফল্টভাবে যখন কম্পোনেন্ট মাউন্ট হয় তখনি useEffect কল হয় । তবে আমরা চাইলে <code>useEffect</code> ফাংশনের সেকেন্ড প্যারামিটার এ বলে দিতে পারি যে প্রথমবার লোড হওয়ার পর আর কখন কখন useEffect রান হবে। এজন্য useEffect এর সেকেন্ড প্যারামিটার এ আমাদেরকে <code>dependencies</code> গুলো বলে দিতে হয় ।</p>
+<p><code>[] = লোড হওয়ার পর মাত্র একবার রান হবে পরে স্টেট চেঞ্জ হয়ে কম্পোনেন্ট রিরেন্ডার হলেও আর কখনোই রান হবেনা</code> ,</p>
+<p><code>dependency= ডিপেন্ডেন্সি বলে দেয়া মানে হলো ডিপেন্ডেন্সি চেঞ্জ হলেই useEffect আবার রান হবে </code></p>
+</li>
+<li>
+<p><strong>Add cleanup if needed</strong> useEffect রান হওয়ার পর যখন কম্পোনেন্ট আনমাঊন্ট হবে তখন কিছু কিছু ক্ষেত্রে আমাদের কে useEffect cleanup করে দিতে হয় ,নাহলে effect যদি কম্পোনেন্ট Unmount হওয়ার পরও চলতে থাকে ,তাহলে সেকেন্ড টাইম যখন আবার কম্পোনেন্ট Mount হবে তখন তখনও যদি আগের effect রানিং থাকে এবং তার উপর আবারো effect কল হয় তাহলে এপ্লিকেশনে অনেক error and Bugs তৈরি হতে পারে।</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-to-handle-the-effect-firing-twice-in-development">How to handle the Effect firing twice in development?</h3>
+<p>এজন্য প্রথমে আমাদের বুঝতে হবে যে,কেন <code>development</code> মুড এ আমাদের কম্পোনেন্ট দুইবার রান হয় ? এটা হয় মূলত <code>unpredictable bugs</code> খুঁজে বের করার জন্য। <code>React</code> ডেভেলপমেন্ট মুড এ প্রতিটা কম্পনেন্ট দুইবার করে রান করে,যাতে আমরা বুঝতে পারি যে আমাদের কম্পোনেন্টগুলো যদি দুইবার <code>mount</code> হয় তাহলে কোন <code>bug</code> তৈরি হয় নাকি । এজন্য রিয়াক্ট আমাদের প্রতিটা কম্পোনেন্ট প্রথমে Mount হবার পর সাথে সাথেই আবার <code>Unmonut</code> করে দিয়ে পুনরায় আবার <code>Mount</code> করে ।</p>
+<h3 id="mountunmount-remount-and-render-re-render">Mount,Unmount, Remount and Render, re-render</h3>
+<pre><code> ১। Mount = কম্পোনেন্ট টা ভিজুয়াল হওয়া । কোন কম্পোনেন্ট যখন আমাদের UI তে ভিজুয়াল হয় তখন সেটা হলো Mount.
+
+ ২। Unmount = কোন কম্পোনেন্ট যখন আমাদের UI থেকে রিমুভ হয়ে যায় তখন তা হলো Unmount.
+
+ ৩। Remount = কোন কম্পোনেন্ট UI থেকে রিমুভ হয়ে যাওয়ার পর তা আবারো UI তে ভিজুয়াল হউয়া ।
+
+ ৪। Render = Render হলো react এর একটা কাজ ,যা রিয়াক্ট তার নিজের ভিতরেই করে থাকে। Render হলো মূলত কম্পোনেন্টটা লোড হওয়া ।
+
+ ৫। Re-render = rerender ও রিইয়াক্ট তার নিজের ভিতরেই করে । এর মানে হলো কম্পোনেন্ট রিলোড দেয়া ।
+</code></pre>
+<h3 id="কিভাবে-development-মুড-এ-useeffect-কাজ-করছে--কিভাবে-দুই-বার-রান-করছে--কখন-mountunmountremount-হচ্ছে-">কিভাবে development মুড এ useEffect কাজ করছে ? কিভাবে দুই বার রান করছে ? কখন Mount/UnMount/ReMount হচ্ছে ?</h3>
+<ul>
+<li>
+<p>প্রথমত কম্পোনেন্ট <code>Mount</code> হওয়ার সাথে সাথেই কম্পোনেন্ট আগে DOM এ render হয় । কপমোনেন্ট DOM এ রেন্ডার হওয়ার পর সাথেই সাথেই <code>useEffect</code> একবার রান হয়।</p>
+</li>
+<li>
+<p>যেহেতু রিয়াক্ট এর ডেভেলপমেন্ট মুড এ প্রতিটা কম্পোনেন্ট দুইবার রান হয় তাই,প্রথমবার রান হওয়ার পর কম্পোনেন্ট unMount হয়ে যাবে এবং re-mount হয়ে যাবে ।</p>
+</li>
+<li>
+<p>কম্পোনেন্ট যখন আবার re-mount হবে তখন useEffect আবার রান হবে । অর্থাৎ development mood এ প্রথমবারে কম্পোনেন্ট দুইবার Mount <code>(Mount -&gt; UnMount -&gt; Re-Mount)</code> হওয়ার কারনে <code>useEffect</code> ও দুইবার রান হবে ।</p>
+</li>
+<li>
+<p>যদি useEffect এর ডিপেন্ডেন্সি বলে দেয়া থাকে তাহলে প্রথমবার useEffect রান হওয়ার পর একমাত্র যখন dependency চেঞ্জ হবে তখন আবার পুনরায় রান হবে । পুনরায় রান হওয়ার সময় যদি useEffect এ cleanup function থাকে,তাহলে প্রতিবার নতুন করে রান হওয়ার আগে আগের রান হওয়া effect টা clear করে দিবে।</p>
+<p>যদি dependency তে একটা [] থাকে তাহলে শুধু কম্পোনেন্ট Mount হওয়ার পর একবার রান হবে পরে আর কখনোই রান হবেনা ।</p>
+<p>যদি dependency না দেয়া থাকে তাহলে প্রতিবার কম্পোনেন্ট re-render হলেই useEffect রান হবে ।</p>
+</li>
+</ul>
+<p><strong>যদি cleanup function থাকে,তাহলে একমাত্র যখন কম্পোনেন্ট unMount হবে তখনি cleanup function রান হবে। কম্পোনেন্ট unMount না হলে কখনই cleanup function কল হবেনা</strong></p>
+
+            
+            
+        </body>
+        </html>
