@@ -366,8 +366,8 @@ You should know and be comfortable with **all of the following:**
 
     -   #### Responding to Events - Event Handlers
 
-       <blockquote>
-        আমরা রিয়াক্ট কম্পোনেন্ট গুলোতে ইউজারের বিভিন্ন ইন্টারেকশনে ইভেন্ট হেন্ডেলার বসাতে পারি । যা আমাদের UI কে ইন্টারেক্টিভ করে তুলে।
+         <blockquote>
+          আমরা রিয়াক্ট কম্পোনেন্ট গুলোতে ইউজারের বিভিন্ন ইন্টারেকশনে ইভেন্ট হেন্ডেলার বসাতে পারি । যা আমাদের UI কে ইন্টারেক্টিভ করে তুলে।
 
         **Event Deligation in Javascript**
 
@@ -464,12 +464,12 @@ You should know and be comfortable with **all of the following:**
         e.stopPropagation(); // এভাবে আমরা রিয়াক্টে প্রপাগেশন স্টপ করতে পারি ।
         ```
 
-       </blockquote>
+         </blockquote>
 
     -   #### Understanding States - React Component's Memory - useState
 
-       <blockquote>
-        **What is State**
+         <blockquote>
+         **What is State**
 
         স্টেট বলতে বুঝায় অবস্থা । কোন কিছুর অবস্থা বুঝাতে `state` শব্দটা ব্যাবহার করা হয়। রিয়াক্টে কোন কম্পোনেন্টের কোন অবস্থা বুঝাতে `state` ব্যবাহার করা হয়। রিয়াক্টে আমরা যখন কোন `state` ডিফাইন করি তখন এর ভিতরে তিনটা পার্ট থাকে ,
 
