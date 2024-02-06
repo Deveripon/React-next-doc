@@ -252,7 +252,8 @@ You should know and be comfortable with **all of the following:**
 
     -   #### JavaScript in JSX
 
-        আমরা JSX এর ভিতরে ডায়নামিক জাভাস্ক্রিপ্ট এর একপ্রেশন লিখতে পারি ।
+        <blockquote>
+         আমরা JSX এর ভিতরে ডায়নামিক জাভাস্ক্রিপ্ট এর একপ্রেশন লিখতে পারি ।
 
         JSX এ জাভাস্ক্রিপ্ট একপ্রেশন লিখতে হলে আমাদেরকে তা `{}` এর ভিতরে লিখতে হবে ।
 
@@ -263,8 +264,11 @@ You should know and be comfortable with **all of the following:**
         }
         ```
 
+        </blockquote>
+
     -   #### Passing Props to Components
 
+      <blockquote>
         React Components use props to communicate with each other. Props are like Html attributes. but main difference is - we can pass any javascript value as props like array object even function as well.
 
         **React Props or Data are unidirectional. It means we can only pass data/props from Parents to Child Component**
@@ -314,8 +318,11 @@ You should know and be comfortable with **all of the following:**
 
         We can forward all props with <Avatar {...props} /> JSX spread syntax, but we shouldn't overuse it!
 
+      </blockquote>
+
     -   #### Conditional Rendering
 
+       <blockquote>
         আমরা অনেকভাবে রিয়াক্টে কন্ডিশনাল রেন্ডারিং করতে পারি ঃ
 
             1.  If Statement
@@ -324,8 +331,11 @@ You should know and be comfortable with **all of the following:**
             4.  Ternery Operators - `? :`
             5.  Nullinsh Colasing Operators - `??`
 
+       </blockquote>
+
     -   #### Rendering Lists
 
+      <blockquote>
         জাভাস্ক্রিপ্ট এ আমাদের অনেক সময় লিস্ট আইটেম শো করানোর প্রয়োজন পরে । যদি আমাদের কোন Array ডাটা স্ট্রাকচার থাকে তখন আমাদেরকে `map` করে সেই ডাটা লিস্ট শো করাতে হয়। এখানেও আমরা Array ডাটা শো করানোর সময় `map` ব্যাবহার করবো।তবে এক্ষেত্রে আমরা লিস্ট আইটেম ম্যাপ করার সময় আইটেম কম্পোনেন্ট এ একটা ইউনিক `key={}` আইডেন্টিফায়ার ব্যাবহার করতে হবে ।
 
         এই `key={}` আমাদের প্রতিটা কম্পোনেন্ট কে আলাদা আলাদা করে রিপ্রেসেন্ট করে । এতে আমাদের অনেক বাগ থকে মুক্তি মেলে।
@@ -336,7 +346,11 @@ You should know and be comfortable with **all of the following:**
 
         ২। `key={}` ব্যাবহার করার করার সময় কখনওই আমরা on the fly(ইনস্ট্যান্ট) `key` জেনারেট করে ব্যাবহার করতে পারবোনা। সবচাইতে ভালো হয় যদি আমাদের ডাটাতে কোন ইউনিক আইডেন্টিফায়ার থাকে । তাহলে সহজেই আমরা সেই আইডেন্টিফায়ার কে key হিসেবে ব্যাবহার করতে পারবো ।
 
+      </blockquote>
+
     -   #### Pure Components
+
+        <blockquote>
 
         আমাদের প্রতিটা কম্পোনেন্টকে `Pure Component` হিসেবে বানানো উচিত। পিউর কম্পোনেন্ট এর কিছু বৈশিষ্ট্য হলো ঃ
 
@@ -344,12 +358,15 @@ You should know and be comfortable with **all of the following:**
 
         You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, “set” state instead of mutating preexisting objects.
 
+        </blockquote>
+
     -   #### How to split larger components into smaller ones
 
 -   **Adding Interactivity**
 
     -   #### Responding to Events - Event Handlers
 
+       <blockquote>
         আমরা রিয়াক্ট কম্পোনেন্ট গুলোতে ইউজারের বিভিন্ন ইন্টারেকশনে ইভেন্ট হেন্ডেলার বসাতে পারি । যা আমাদের UI কে ইন্টারেক্টিভ করে তুলে।
 
         **Event Deligation in Javascript**
@@ -447,8 +464,11 @@ You should know and be comfortable with **all of the following:**
         e.stopPropagation(); // এভাবে আমরা রিয়াক্টে প্রপাগেশন স্টপ করতে পারি ।
         ```
 
+       </blockquote>
+
     -   #### Understanding States - React Component's Memory - useState
 
+       <blockquote>
         **What is State**
 
         স্টেট বলতে বুঝায় অবস্থা । কোন কিছুর অবস্থা বুঝাতে `state` শব্দটা ব্যাবহার করা হয়। রিয়াক্টে কোন কম্পোনেন্টের কোন অবস্থা বুঝাতে `state` ব্যবাহার করা হয়। রিয়াক্টে আমরা যখন কোন `state` ডিফাইন করি তখন এর ভিতরে তিনটা পার্ট থাকে ,
@@ -493,6 +513,8 @@ You should know and be comfortable with **all of the following:**
         একটা কম্পোনেন্ট এর ভিতরে আমরা আমাদের যতগুলো প্রয়োজন ততগুলো স্টেট নিতে পারি ।
 
         **State is Isoloted and Privet**
+
+       </blockquote>
 
     -   How State works in React
     -   How Rendering works in React
