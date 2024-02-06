@@ -447,7 +447,53 @@ You should know and be comfortable with **all of the following:**
         e.stopPropagation(); // এভাবে আমরা রিয়াক্টে প্রপাগেশন স্টপ করতে পারি ।
         ```
 
-    -   Understanding States - React Component's Memory - useState
+    -   #### Understanding States - React Component's Memory - useState
+
+        **What is State**
+
+        স্টেট বলতে বুঝায় অবস্থা । কোন কিছুর অবস্থা বুঝাতে `state` শব্দটা ব্যাবহার করা হয়। রিয়াক্টে কোন কম্পোনেন্টের কোন অবস্থা বুঝাতে `state` ব্যবাহার করা হয়। রিয়াক্টে আমরা যখন কোন `state` ডিফাইন করি তখন এর ভিতরে তিনটা পার্ট থাকে ,
+
+            1. state Name (It holds the initial value of state)
+            2. setter function (It hepls to change the states values in different conditions)
+            3. initial value (It remember the initial value of the state)
+
+        ```javascript
+        let initialState;
+        const [count, setCount] = useState((initialState = 0));
+        ```
+
+        উপরের বলা তিনটা পার্টে বলা হয়েছে যে, রিয়াক্টে `state` এর একটা initial state থাকে, এই ইনিশিয়াল স্টেট টাকে রিয়াক্ট তার প্রতিটা রেন্ডারে মনে রাখে।
+
+        `State` কে রিয়াক্ট কম্পোনেন্ট এর মেমরি বলা হয়ে থাকে,কেননা এর মেমরিতে একটা ইনিশিয়াল ডাটা সেভ থাকে যা রিয়াক্ট মনে রাখতে পারে তার প্রতিটা রেন্ডারে ।
+
+        `State` এর একটা নেম ভেরিয়েবল থাকে যা তার ইনিশিয়াল ভ্যালুটা ধারন করে থাকে। আমরা যদি স্টেট এর ভ্যালু এক্সেস করতে চাই,তাহলে সেই নেম ভ্যারিয়েবল দিয়ে সেই ভ্যালু এক্সেস করতে পারি ।
+
+        `State` এর একটা `setter function` থাকে যা দিয়ে আমরা চাইলে ইউজারের বিভিন্ন ইন্টারেকশন বা অন্যান্য বিভিন্ন কন্ডিশনে স্টেট এর ভ্যালু চেঞ্জ করে নতুন ভ্যালু সেট করতে পারি ।
+
+        **Why we need to use State**
+
+        আমরা যদি ইউজারের কোন ইন্টারেকশনের কারনে UI তে কোন পরিবর্তন করতে চাই এবং আমরা সেটা ম্যানুয়ালি ডমে আপডেট না করে শুধু একটা ভ্যালু চেঞ্জ করে দিয়েও করে ফেলতে চাই,তাহলে আমাদের `state` নিতে হবে ।
+
+        আসলে রিয়াক্টিভ মানেই এটা । এই কারণেই রিয়াক্টের জন্ম । সাধারণত আমরা যখন ইউজারের কোন ইন্টারেকশনের কারনে UI এর কোন চেঞ্জ DOM এ দেখাতে চাই,তাহলে আমদের সেই DOM ELEMENT টাকে ধরে ম্যানুয়ালি চেঞ্জ করে আবার DOM আপডেট করতে হয় । কিন্তু রিয়াক্টে আমরা শুধুমাত্র setter function এর মাধ্যমে state এর ভ্যালু চেঞ্জ করে দেই,তখন রিয়াক্ট অটোমেটিক রি-রেন্ডার নিবে এবং উপডেটেড ভ্যালুটা UI তে দেখিয়ে দিবে ।
+
+        **Hooks in React**
+
+        React এ `useState`v হুক সহ আরও বেশ কিছু হুক রয়েছে, যেসকল ফাংশনের আগে `use` ব্যাবহার করা হয়েছে সেগুলোই রিয়াক্টের হুক হিসেবে পরিচিত। হুকগুলো হলো রিয়াক্টের স্পেশাল ফাংশন যা রিয়াক্টের রেন্ডারিং এর সময় ব্যাবহার করা হয়। এতে করে রিয়াক্টের রেন্ডারিং প্রসেসের মদ্ধে কিছু এক্সট্রা ফিচার এড করা যায়।
+
+        **Where to define Hooks?**
+
+        React এর হুকগুলো সবসময় কম্পোনেন্টে এর TOP LEVEL বা সবার উপরে ব্যাবহার করতে হয় । এগুলো কখনোই রিটার্নের ভিতরে বা কম্পোনেন্টের বাহিরে রাখা যাবেনা ।
+
+        **Initial value Types of useState**
+
+        `useState` হুক এর ইনিশিয়াল ভ্যালু হিসেবে আমরা যেকোন ধরনের ডাটা নিতে পারি যেমন ঃ `Array`,`object`,`number`,`string`,`boolean`
+
+        **How Many State can be taken in One Component**
+
+        একটা কম্পোনেন্ট এর ভিতরে আমরা আমাদের যতগুলো প্রয়োজন ততগুলো স্টেট নিতে পারি ।
+
+        **State is Isoloted and Privet**
+
     -   How State works in React
     -   How Rendering works in React
     -   Updating complex states immutably in React
