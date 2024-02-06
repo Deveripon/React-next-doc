@@ -268,7 +268,7 @@ You should know and be comfortable with **all of the following:**
 
     -   #### Passing Props to Components
 
-      <blockquote>
+         <blockquote>
         React Components use props to communicate with each other. Props are like Html attributes. but main difference is - we can pass any javascript value as props like array object even function as well.
 
         **React Props or Data are unidirectional. It means we can only pass data/props from Parents to Child Component**
@@ -318,12 +318,12 @@ You should know and be comfortable with **all of the following:**
 
         We can forward all props with <Avatar {...props} /> JSX spread syntax, but we shouldn't overuse it!
 
-      </blockquote>
+         </blockquote>
 
     -   #### Conditional Rendering
 
-       <blockquote>
-        আমরা অনেকভাবে রিয়াক্টে কন্ডিশনাল রেন্ডারিং করতে পারি ঃ
+        <blockquote>
+         আমরা অনেকভাবে রিয়াক্টে কন্ডিশনাল রেন্ডারিং করতে পারি ঃ
 
             1.  If Statement
             2.  Logical AND -`&&`
@@ -331,12 +331,12 @@ You should know and be comfortable with **all of the following:**
             4.  Ternery Operators - `? :`
             5.  Nullinsh Colasing Operators - `??`
 
-       </blockquote>
+         </blockquote>
 
     -   #### Rendering Lists
 
-      <blockquote>
-        জাভাস্ক্রিপ্ট এ আমাদের অনেক সময় লিস্ট আইটেম শো করানোর প্রয়োজন পরে । যদি আমাদের কোন Array ডাটা স্ট্রাকচার থাকে তখন আমাদেরকে `map` করে সেই ডাটা লিস্ট শো করাতে হয়। এখানেও আমরা Array ডাটা শো করানোর সময় `map` ব্যাবহার করবো।তবে এক্ষেত্রে আমরা লিস্ট আইটেম ম্যাপ করার সময় আইটেম কম্পোনেন্ট এ একটা ইউনিক `key={}` আইডেন্টিফায়ার ব্যাবহার করতে হবে ।
+         <blockquote>
+          জাভাস্ক্রিপ্ট এ আমাদের অনেক সময় লিস্ট আইটেম শো করানোর প্রয়োজন পরে । যদি আমাদের কোন Array ডাটা স্ট্রাকচার থাকে তখন আমাদেরকে `map` করে সেই ডাটা লিস্ট শো করাতে হয়। এখানেও আমরা Array ডাটা শো করানোর সময় `map` ব্যাবহার করবো।তবে এক্ষেত্রে আমরা লিস্ট আইটেম ম্যাপ করার সময় আইটেম কম্পোনেন্ট এ একটা ইউনিক `key={}` আইডেন্টিফায়ার ব্যাবহার করতে হবে ।
 
         এই `key={}` আমাদের প্রতিটা কম্পোনেন্ট কে আলাদা আলাদা করে রিপ্রেসেন্ট করে । এতে আমাদের অনেক বাগ থকে মুক্তি মেলে।
 
@@ -346,7 +346,7 @@ You should know and be comfortable with **all of the following:**
 
         ২। `key={}` ব্যাবহার করার করার সময় কখনওই আমরা on the fly(ইনস্ট্যান্ট) `key` জেনারেট করে ব্যাবহার করতে পারবোনা। সবচাইতে ভালো হয় যদি আমাদের ডাটাতে কোন ইউনিক আইডেন্টিফায়ার থাকে । তাহলে সহজেই আমরা সেই আইডেন্টিফায়ার কে key হিসেবে ব্যাবহার করতে পারবো ।
 
-      </blockquote>
+        </blockquote>
 
     -   #### Pure Components
 
