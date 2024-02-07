@@ -1135,5 +1135,7 @@ import { Provider } from "react-redux";
 
     যদি dependency না দেয়া থাকে তাহলে প্রতিবার কম্পোনেন্ট re-render হলেই useEffect রান হবে ।
 
-**যদি cleanup function থাকে,তাহলে একমাত্র যখন কম্পোনেন্ট unMount হবে তখনি cleanup function রান হবে। কম্পোনেন্ট unMount না হলে কখনই cleanup function কল হবেনা**
+### LifeCycle of Reactive Effects:
+
+![lifecycle of effect](./assets/images/UseEffect%20lifecycle.png)
 
