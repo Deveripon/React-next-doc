@@ -1180,26 +1180,24 @@ install Command :
   
   ```bash
    npm i cors
-   
    ```
     
  ✔step 2 : use cors funtion in express server(request receiver end)
 
- ```javasctipt
+ ```javascript 
  import cors from "cors"
-  app.use(cors())
-   
-  ```
+  app.use(cors()); 
+ ```
 
 এটা করলেই ব্রাউজারে আমাদের সকল ডোমেইন এবং মেথডকে Allowed করে দিবে। 
  কিন্তু যদি আমারা চাই যে আমরা শুধুমাত্র যে সকল ডোমেইন এবং যে সকল মেথডকে Allow করবো সেটা 	আমরা বলে দিবো।
 তাহলে আমরা নিচের কোডটা ফলো করতে পারি।
 
-  ```javascript
-   	import cors from "cors"
-	app.use(cors({
- 	origin: ["your origin domain name"]
-  	methods: ["GET","POST"]
+ ```javascript
+  import cors from "cors"
+ app.use(cors({
+ origin: ["your origin domain name"]
+  methods: ["GET","POST"]
     }))
 ```
  
