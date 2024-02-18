@@ -1144,63 +1144,62 @@ import { Provider } from "react-redux";
 
 #### What is `CORS`? 
 
- 	CORS = CROSS ORIGIN 		RESOURCE SHARING
-	এর বাংলা মানে হলো এক অরিজিন 	থেকে অন্য অরিজিন এ রিসোর্স বা 	ডাটা শেয়ার করা।
-	এখানে অরিজিন বলতে ডোমেইন 	বুঝানো হয়েছে। 
+ CORS = CROSS ORIGIN RESOURCE SHARING
+এর বাংলা মানে হলো এক অরিজিন থেকে অন্য অরিজিন এ রিসোর্স বা 	ডাটা শেয়ার করা।
+এখানে অরিজিন বলতে ডোমেইন বুঝানো হয়েছে। 
 
 
 #### What is `CORS` Policy ? 
 
-	এক ডোমেইন থেকে অন্য ডোমেইনে 	ডাটা শেয়ার করার জন্য ব্রাউজার 	একটা পলিসি মেনে চলে এটাকেই 	মুলত `CORS POLICY` বলে।
+এক ডোমেইন থেকে অন্য ডোমেইনে ডাটা শেয়ার করার জন্য ব্রাউজার একটা পলিসি মেনে চলে এটাকেই মুলত `CORS POLICY` বলে।
 
 
-	#### এই পলিসিটি কি? 
+#### এই পলিসিটি কি? 
  
- 	ব্রাউজারের মাধ্যমে যখন এক 		ডোমেইন থেকে অন্য ডোমেইন এ 	API Request করা হয় তখন 		ব্রাউজার প্রতিটা 
-	Request এর সময় চেক করে যে 	যেই ডোমেইন এ API রিকোয়েস্ট 	যাচ্ছে সেই ডোমেইন কি Sender 	Domain বা যেখান থেকে রিকোয়েস্ট 	যাচ্ছে,তাকে Allow করে কিনা? 
-	যদি Allow করে তাহলে কোনো 	Error দেয়না।
-	আর যদি Allow না করে তাহলে 	Browser সেই রিকোয়েস্টটাকে 		আটকে দেয়,এবং CORS Error 	দেখিয়ে দেয় console এ। 
+ ব্রাউজারের মাধ্যমে যখন এক 	ডোমেইন থেকে অন্য ডোমেইন এ API Request করা হয় তখন 	ব্রাউজার প্রতিটা 
+Request এর সময় চেক করে যে যেই ডোমেইন এ API রিকোয়েস্ট যাচ্ছে সেই ডোমেইন কি Sender Domain বা যেখান থেকে রিকোয়েস্ট 	যাচ্ছে,তাকে Allow করে কিনা? 
+যদি Allow করে তাহলে কোনো Error দেয়না। আর যদি Allow না করে তাহলে Browser সেই রিকোয়েস্টটাকে আটকে দেয়,এবং CORS Error দেখিয়ে দেয় console  এ।
+default ভাবে সবসময় এটা 	Not-Allowed থাকে।তাই যখনি কোন একটা ডোমেইন থেকে অন্য আরেকটা আলাদা ডোমেইন এ  API রিকোয়েস্ট যায় তখন ব্রাউজার CORS ERROR দেয়।
 
- 	default ভাবে সবসময় এটা 		Not-Allowed থাকে।
-  	তাই যখনি কোন একটা ডোমেইন 	থেকে অন্য আরেকটা আলাদা 		ডোমেইন এ  API রিকোয়েস্ট যায় 	তখন ব্রাউজার CORS ERROR দেয়।
+#### এটা ব্রাউজার কিভাবে বুঝে? 
 
-  	#### এটা ব্রাউজার কিভাবে বুঝে? 
-
-   	ব্রাউজার প্রতিটা রিকোয়েস্ট এ যেই 	রেসপন্স আসে তার 				Response.Header এ চেক করে 	দেখে যে 
-    `"Access-Control-Allow-		Origin" : <true/domain 		names>`
-	আছে কিনা। 
-	যদি থাকে তাহলে Allowed আর 	না থাকে Not-Allowed.
+   ব্রাউজার প্রতিটা রিকোয়েস্ট এ যেই রেসপন্স আসে তার Response.Header এ চেক করে দেখে যে 
+    `
+    "Access-Control-Allow-Origin" : <true/domain names>
+    `
+আছে কিনা। যদি থাকে তাহলে Allowed আর যদি না থাকে তাহলে  Not-Allowed.
 
 #### How to Solve CORS ERROR or How to enable a specific domain in CORS policy. 
 
-	প্রতিটা প্রোগ্রামিং ল্যাংগুয়েজ এ এটার জন্য আলাদা আলাদা সমাধান রয়েছে।তবে আমরা যেহেতু `Nodejs` আর `express server` নিয়ে কাজ করছি তাই এক্ষেত্রে কিভাবে সমাধান করা যায় তা নিয়ে আলোচনা করছি।
+প্রতিটা প্রোগ্রামিং ল্যাংগুয়েজ এ এটার জন্য আলাদা আলাদা সমাধান রয়েছে।তবে আমরা যেহেতু `Nodejs` আর `express server` নিয়ে কাজ করছি তাই এক্ষেত্রে কিভাবে সমাধান করা যায় তা নিয়ে আলোচনা করছি।
 
-	✔ step 1 : install cors 	npm package 
-	node js এর জন্য বানানো 		একটা npm package আছে cors 	নামে যা আমাদের কে cors 		policy কন্ট্রোল করতে দেয়।সেই 	package টা ইন্সটল করতে হবে।
- 	install Command :
+✔ step 1 : install cors npm package 
+node js এর জন্য বানানো একটা npm package আছে cors নামে যা আমাদের কে cors policy কন্ট্রোল করতে দেয়।সেই package টা ইন্সটল করতে হবে।
+install Command :
+
   
-  	```bash
- 	  npm i cors
+  ```bash
+   npm i cors
    
-    ```
+   ```
     
-	 ✔step 2 : use cors funtion in express server(request receiver end)
+ ✔step 2 : use cors funtion in express server(request receiver end)
 
-	  ```javasctipt
-	 import cors from "cors"
-	  app.use(cors())
+ ```javasctipt
+ import cors from "cors"
+  app.use(cors())
    
-	  ```
+  ```
 
-	এটা করলেই ব্রাউজারে আমাদের 	সকল ডোমেইন এবং মেথডকে 		Allowed করে দিবে। 
-	 কিন্তু যদি আমারা চাই যে আমরা 	শুধুমাত্র যে সকল ডোমেইন এবং যে 	সকল মেথডকে Allow করবো সেটা 	আমরা বলে দিবো।
-	তাহলে আমরা নিচের কোডটা ফলো 	করতে পারি।
+এটা করলেই ব্রাউজারে আমাদের সকল ডোমেইন এবং মেথডকে Allowed করে দিবে। 
+ কিন্তু যদি আমারা চাই যে আমরা শুধুমাত্র যে সকল ডোমেইন এবং যে সকল মেথডকে Allow করবো সেটা 	আমরা বলে দিবো।
+তাহলে আমরা নিচের কোডটা ফলো করতে পারি।
 
-  	```javascript
+  ```javascript
    	import cors from "cors"
 	app.use(cors({
- 	origin: ["your origin 			domain name"]
+ 	origin: ["your origin domain name"]
   	methods: ["GET","POST"]
     }))
-	```
+```
  
